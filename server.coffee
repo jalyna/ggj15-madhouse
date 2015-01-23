@@ -21,9 +21,10 @@ yaml = require('js-yaml')
 
 
 # Load modules
-app   = require('express')()
-http  = require('http').Server(app)
-io    = require('socket.io')(http)
+express = require('express')
+app     = express()
+http    = require('http').Server(app)
+io      = require('socket.io')(http)
 
 # INIT
 user_counter  = 0
@@ -31,6 +32,8 @@ scene         = 'start'
 scene_data    = {}
 step_data     = {}
 step          = -1
+
+app.use express.static(__dirname + '/game_data')
 
 # LOAD SCENE
 
