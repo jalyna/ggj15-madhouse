@@ -25,11 +25,28 @@ app   = require('express')()
 http  = require('http').Server(app)
 io    = require('socket.io')(http)
 
-user_counter = 0
+# INIT
+user_counter  = 0
+scene         = 'start'
+scene_data    = {}
+step_data     = {}
+step          = -1
 
+# LOAD SCENE
+
+loadScene = (name, cb) ->
+  fs.readFile "game_data/#{name}.yml", "utf-8", (err, data) =>
+    scene_data = yaml.load(data)
+    cb.call()
+loadStep = (cb) ->
+  step_data = scene_data['steps'][step]
+  cb.call()
+
+# INDEX
 app.get '/', (req, res) ->
   res.sendFile(__dirname + '/index.html')
 
+# SOCKET
 io.on 'connection', (socket) ->
   socket.on 'disconnect', ->
     user_counter--
@@ -37,9 +54,15 @@ io.on 'connection', (socket) ->
 
   socket.on 'next', ->
     console.log "NEXT"
+    step++
+    loadScene scene, ->
+      loadStep ->
+        io.emit 'render_step', step_data
+
 
   console.log "a user connected whoop whoop #{user_counter}"
   user_counter++
   io.emit 'user_counter', user_counter
+  socket.emit 'render_step', step_data
 
 http.listen 8080

@@ -9,6 +9,8 @@
   <body>
     <h1>Madhouse</h1>
     <div id="background">
+      x
+      x
     </div>
     <div id="text">
     </div>
@@ -25,6 +27,16 @@
 
       socket.on('user_counter', function(user_counter) {
         $("#user_counter").html(user_counter);
+      });
+
+      socket.on('render_step', function(data) {
+        console.log(data);
+        if(data.text) {
+          $("#text").html(data.text);
+        }
+        if(data.background) {
+          $("#background").css("background", "url(game_data/images/" + data.background + ")");
+        }
       });
     </script>
   </body>
