@@ -1,0 +1,9 @@
+steps:
+  -
+    background: "foo.png"
+    text: "Hi everyone"
+  -
+    text: "Nice to have you here"
+decision:
+  "Ich nehme A": "a"
+  "Lieber b": "b"

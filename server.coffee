@@ -1,18 +1,45 @@
 fs = require('fs')
+yaml = require('js-yaml')
 
-handler = (req, res) ->
-  fs.readFile __dirname + "/index.html", (err, data) ->
-    if err
-      res.writeHead 500
-      return res.end("Error loading index.html")
-    res.writeHead 200
-    res.end data
+#handler = (req, res) ->
+  # fs.readFile __dirname + "/index.html", (err, data) ->
+  #   if err
+  #     res.writeHead 500
+  #     return res.end("Error loading index.html")
+  #   res.writeHead 200
+
+
+  #   fs.readFile "game_data/start.yml", "utf-8", (err, data) =>
+  #     if (err) 
+  #       console.log "Error: #{err}"
+  #       return
+  #     data = yaml.load(data)
+  #     console.log(data)
+
+  #   res.end data
+
+
 
 # Load modules
-app           = require("http").createServer(handler)
-#controllers   = require('./controllers/index.js.coffee')
-#auth          = require('./auth.js.coffee')
+app   = require('express')()
+http  = require('http').Server(app)
+io    = require('socket.io')(http)
 
-app.listen 8080
+user_counter = 0
 
-#controllers.set(io, rc)
+app.get '/', (req, res) ->
+  res.sendFile(__dirname + '/index.html')
+
+io.on 'connection', (socket) ->
+  socket.on 'disconnect', ->
+    user_counter--
+    io.emit 'user_counter', user_counter
+
+  socket.on 'next', ->
+    console.log "NEXT"
+
+  console.log "a user connected whoop whoop #{user_counter}"
+  user_counter++
+  io.emit 'user_counter', user_counter
+
+http.listen 8080

@@ -1,1 +1,32 @@
-FOOBAR Party
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta chartset="utf-8">
+    <title>madhouse</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>Madhouse</h1>
+    <div id="background">
+    </div>
+    <div id="text">
+    </div>
+    <span id="user_counter"></span>
+    <button id="button">Start</button>
+
+    <script>
+      var socket = io();
+
+      $("#button").on("click", function(e) {
+        e.preventDefault();
+        socket.emit('next');
+      });
+
+      socket.on('user_counter', function(user_counter) {
+        $("#user_counter").html(user_counter);
+      });
+    </script>
+  </body>
+</html>
+
