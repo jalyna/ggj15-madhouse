@@ -1,5 +1,6 @@
 fs = require('fs')
 yaml = require('js-yaml')
+_ = require('lodash')
 
 #handler = (req, res) ->
   # fs.readFile __dirname + "/index.html", (err, data) ->
@@ -31,7 +32,11 @@ user_counter  = 0
 scene         = 'start'
 scene_data    = {}
 step_data     = {}
+decision_data = {}
+decision_result = null
 step          = -1
+time_left     = 10
+in_decision   = false
 
 app.use express.static(__dirname + '/game_data')
 
@@ -40,10 +45,65 @@ app.use express.static(__dirname + '/game_data')
 loadScene = (name, cb) ->
   fs.readFile "game_data/#{name}.yml", "utf-8", (err, data) =>
     scene_data = yaml.load(data)
-    cb.call()
+    cb.call() if cb
 loadStep = (cb) ->
   step_data = scene_data['steps'][step]
-  cb.call()
+  cb.call() if cb
+loadDecision = (cb) ->
+  decision_data = scene_data['decision']
+  cb.call() if cb
+countDown = (io) ->
+  if time_left <= 0
+    console.log "RESULT", decision_result
+    if decision_result == null
+      time_left = 11
+      countDown io
+    else
+      in_decision = false
+      scene = getDecision()
+      step = -1
+      loadScene scene, ->
+        nextStep(io)
+  else
+    time_left--
+    io.emit 'update_time_left', time_left
+    setTimeout (->
+      countDown(io)
+    ), 1000
+getDecision = ->
+  values = _.values(decision_result)
+  best = _.max(values)
+  for k, v of decision_result
+    if v == best
+      return k
+nextStep = (io) ->
+  return if in_decision
+  console.log "NEXT"
+  step++
+  loadStep ->
+    if step_data
+      io.emit 'render_step', step_data
+    else
+      console.log "DECISION!!"
+      loadDecision ->
+        if decision_data
+          decision_result = null
+          time_left = 11
+          in_decision = true
+          io.emit 'render_decision', decision_data
+          countDown io
+        else 
+          io.emit 'game_end'
+          setTimeout (->
+            scene = 'start'
+            step = -1
+            step_data = {}
+            loadScene scene
+            io.emit 'render_step', step_data
+          ), 3000
+
+
+loadScene scene
 
 # INDEX
 app.get '/', (req, res) ->
@@ -55,13 +115,16 @@ io.on 'connection', (socket) ->
     user_counter--
     io.emit 'user_counter', user_counter
 
-  socket.on 'next', ->
-    console.log "NEXT"
-    step++
-    loadScene scene, ->
-      loadStep ->
-        io.emit 'render_step', step_data
+  socket.on 'choose_option', (option) ->
+    return unless in_decision
+    console.log "OPTION"
+    console.log option
+    decision_result ?= {}
+    decision_result[option] ?= 0
+    decision_result[option]++
 
+  socket.on 'next', ->
+    nextStep(io)
 
   console.log "a user connected whoop whoop #{user_counter}"
   user_counter++

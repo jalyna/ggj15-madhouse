@@ -14,8 +14,12 @@
     </div>
     <div id="text">
     </div>
+    <div>
+      Time left: <span id="time_left">-</span>
+    </div>
     <span id="user_counter"></span>
     <button id="button">Start</button>
+    <ol id="options"></ol>
 
     <script>
       var socket = io();
@@ -25,17 +29,39 @@
         socket.emit('next');
       });
 
+      $(document).on('click', '#options li', function(e){
+        option = $(e.currentTarget).data('option');
+        console.log("UHU", option);
+        socket.emit('choose_option', option);
+      });
+
       socket.on('user_counter', function(user_counter) {
         $("#user_counter").html(user_counter);
       });
 
+      socket.on('update_time_left', function(time_left) {
+        $("#time_left").html(time_left);
+      });
+
       socket.on('render_step', function(data) {
-        console.log(data);
-        if(data.text) {
-          $("#text").html(data.text);
+        if(data) {
+          console.log(data);
+          if(data.text) {
+            $("#text").html(data.text);
+          }
+          if(data.background) {
+            $("#background").css("background", "url(images/" + data.background + ")");
+          }
         }
-        if(data.background) {
-          $("#background").css("background", "url(images/" + data.background + ")");
+      });
+
+      socket.on('render_decision', function(data) {
+        if(data) {
+          console.log(data);
+          $("#options").html('');
+          for (var option in data) {
+            $("#options").append('<li data-option="'+data[option]+'">'+option+'</li>');
+          }
         }
       });
     </script>
