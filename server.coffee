@@ -57,6 +57,8 @@ loadScene = (io, name, cb) ->
         scene_data = yaml.load(body)
         played_scenes.push(name)
         cb.call() if cb
+      else
+        endGame(io)
   catch error
     console.log("ERROR: #{error}")
     endGame(io)
