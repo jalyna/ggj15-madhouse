@@ -13,6 +13,7 @@ request        = require('request')
 # CONSTANTS
 MAX_PLAYERS = 20
 port = process.env.PORT || 8080
+DECISION_TIME = 4
 
 # INIT
 user_counter     = 0
@@ -84,7 +85,7 @@ countDown = (io) ->
       if failed_votes == 3
         endGame(io)
         return
-      time_left = 7
+      time_left = DECISION_TIME + 1
       countDown io
       failed_votes++
     else
@@ -157,7 +158,7 @@ nextStep = (io) ->
         if decision_data && decision_data.length > 0
           decision_result = null
           already_voted = []
-          time_left = 7
+          time_left = DECISION_TIME + 1
           in_decision = true
           io.emit 'render_decision', decision_data
           countDown io
