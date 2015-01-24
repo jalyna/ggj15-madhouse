@@ -1,12 +1,12 @@
 steps:
   -
-    background: "flur.jpg"
-    character: ""
-    duration: 4
-    text: "You try to find another person."
-    character_name: ""
-    sound: "chosen.ogg"
-    text_effect:
+   background: "flur.jpg"
+   character: ""
+   duration: 4
+   text: "You try to find another person."
+   character_name: ""
+   sound: "chosen.ogg"
+   text_effect:
       effect: "rollIn"
   -
     character: ""
@@ -16,7 +16,6 @@ steps:
     sound: "chosen.ogg"
     text_effect:
       effect: "flipInY"
-    character_name: ""
 decision:
   -
     scene: "2a"
