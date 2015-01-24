@@ -10,7 +10,7 @@
 - [x] Mechanism: equal votes
 - [x] Maximum players
 - [x] Duration for steps
-- [ ] Responsive UI
+- [x] Responsive UI
 - [x] Heroku Deployment
 - [x] End game after 4 failed decisions
 - [x] Preload assets
