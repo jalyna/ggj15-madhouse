@@ -2,7 +2,6 @@ var socket = io();
 var tick = new Audio('/music/timetick.ogg');
 
 $('.textbox--chat').on('click', function() {
-  console.log('sdifs');
   if (window.innerWidth < 640) {
     $(this).toggleClass('is-open');
   }
@@ -55,10 +54,10 @@ socket.on('render_step', function(data) {
       }
     }
     if(data.background) {
-      $("#background").css("background", "url(images/" + data.background + ")");
+      $("#background").css("background-image", "url(images/" + data.background + ")");
     }
     if(data.character) {
-      $("#character").hide().css("background", "url(images/" + data.character + ")");
+      $("#character").hide().css("background-image", "url(images/" + data.character + ")");
       if(data.character_effect) {
         $("#character")[data.character_effect]();
       } else {
@@ -101,11 +100,15 @@ socket.on('disconnect', function() {
 
 socket.on('set_decision', function(decision) {
   console.log("DESICION: " + decision);
+  $('.decision').removeClass('is-on');
+  $('.textbox--text').removeClass('is-off');
 });
 
 socket.on('render_decision', function(data) {
   if(data) {
     console.log(data);
+    $('.decision').addClass('is-on');
+    $('.textbox--text').addClass('is-off');
     $("#options").html('<ol class="decision-list list-inline row"></ol>');
     for(var i = 0; i < data.length; i++) {
       opt = data[i]

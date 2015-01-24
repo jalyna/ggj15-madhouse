@@ -9,21 +9,8 @@
 html,
 body {
   font-size: 16px;
+  overflow-x: hidden;
 }
-/*
-<article class="screen is-on">
-  <div class="bg-full" id="background"></div>
-  <div class="character" id="character"></div>
-  <div class="textbox textbox--text" id="text"></div>
-  <div class="decicion textbox">
-    <div class="decision-timeleft" id="time_left"></div>
-    <ul class="decision-list" id="options"></ul>
-  </div>
-  <div class="textbox textbox--chat">
-    <h3><span id="user_counter"></span> voices in your head</h3>
-  </div>
-</article>
-*/
 
 .screen {
   width: 100vw;
@@ -33,42 +20,47 @@ body {
   background-position: center;
   background-color: green;
 }
-.bg-full {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  margin: auto;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-color: green;
-  z-index: -1;
-}
+// .bg-full {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   margin: auto;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+//   background-color: green;
+//   z-index: -1;
+// }
 .screen-index {
   // margin: auto;
   // width: 30em;
 }
 .character {
-  max-width: 10em;
-  height: 15em;
+  position: relative;
+  max-width: 13em;
+  height: 16em;
   margin: auto;
-  background: blue;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  z-index: 0;
 }
 .textbox {
   background-color: rgba(200,200,200, 0.9);
 }
 .textbox--text {
   margin: auto;
-  margin-top: 3em;
   margin-bottom: 2em;
   width: 90%;
 }
-.textbox--text:not(:empty) {
+.textbox--text {
+  display: block;
   height: 7em;
+  margin-top: -0.5em;
 }
 .textbox--chat {
   position: absolute;
@@ -93,6 +85,17 @@ body {
   }
 }
 
+.textbox--text.is-off {
+  display: none;
+}
+
+.decision {
+  display: none;
+  &.is-on {
+    display: block;
+  }
+}
+
 @media (min-width: 40em) {
   .textbox--chat {
     width: 300px;
@@ -109,19 +112,19 @@ body {
     width: 90%;
   }
   .character {
-    max-width: 17em;
+    max-width: 19em;
     height: 22em;
-    margin: auto;
-    background: blue;
   }
   .textbox--chat {
     position: static;
     margin-bottom: 0;
+    width: 300px;
     transform: translateX(0);
   }
   .textbox--text:not(:empty) {
     height: 8em;
   }
+  .textbox--text
 }
 
 
