@@ -77,6 +77,7 @@ loadDecision = (cb) ->
   decision_data = _.reject(decision_data, 'hidden') unless decision_data == null
   cb.call() if cb
 countDown = (io) ->
+  return if stop
   if time_left <= 0
     console.log "RESULT", decision_result
     if decision_result == null
