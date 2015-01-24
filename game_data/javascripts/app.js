@@ -15,6 +15,8 @@ $('.textbox--chat').on('click', function() {
 $("#button").on("click", function(e) {
   e.preventDefault();
   socket.emit('start');
+  $('.screen').removeClass('is-on');
+  $('#background').addClass('is-on');
 });
 
 $("#chat-form").on("submit", function(e) {
@@ -88,6 +90,9 @@ socket.on('render_step', function(data) {
         $("#character").show()
       }
     }
+    if(data.character_name) {
+      $('#character_name').html(data.character_name);
+    } 
     if(data.sound) {
       sound = new Audio('/music/' + data.sound);
       sound.play();
@@ -97,6 +102,9 @@ socket.on('render_step', function(data) {
 
 socket.on('game_end', function(){
   console.log("GAME END");
+  $('.screen').removeClass('is-on');
+  $('#start').addClass('is-on');
+  $('#notice').html('YOU LOST!');
 });
 
 socket.on('debug', function(message) {
@@ -124,9 +132,11 @@ socket.on('preload_sounds', function(files) {
 
 socket.on('max_players_reached', function() {
   console.log("MAX PLAYERS");
+  $('#notice').html('We\'ve reached the maximum.<br>It\'s just too crowded here.');
 });
 
 socket.on('disconnect', function() {
+  $('#notice').html('You\'ve lost connection ... to reality?! ');
   console.log("YOU WERE DISCONNECTED");
 });
 
@@ -139,18 +149,18 @@ socket.on('set_decision', function(decision) {
   console.log("DESICION: " + decision);
   chosen.play();
   $('.decision').removeClass('is-on');
-  $('.textbox--text').removeClass('is-off');
+  $('.textbox--text:not(.decision)').removeClass('is-off');
 });
 
 socket.on('render_decision', function(data) {
   if(data) {
     console.log(data);
     $('.decision').addClass('is-on');
-    $('.textbox--text').addClass('is-off');
-    $("#options").html('<ol class="decision-list list-inline row"></ol>');
+    $('.textbox--text:not(.decision)').addClass('is-off');
+    $("#options").html('<ol class="decision-list"></ol>');
     for(var i = 0; i < data.length; i++) {
       opt = data[i]
-      $("#options ol").append('<li class="col-xs-6 col-sm-3"><button data-option="'+opt.scene+'" class="btn btn-default btn-block btn-lg"><span class="number">'+(i+1)+'</span> '+opt.label+'</button></li>');
+      $("#options ol").append('<li><button data-option="'+opt.scene+'" class="button"><span class="number">'+(i+1)+'</span> '+opt.label+'</button></li>');
     }
   }
 });

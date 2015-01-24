@@ -1,4 +1,7 @@
 @black: #000;
+@gray: #666;
+
+@button-color: @gray;
 
 *,
 *:before,
@@ -19,6 +22,10 @@ body {
   background-size: cover;
   background-position: center;
   background-color: green;
+  display: none;
+}
+.screen.is-on {
+  display: block;
 }
 // .bg-full {
 //   position: absolute;
@@ -49,18 +56,22 @@ body {
   background-position: center;
   z-index: 0;
 }
-.textbox {
+
+.textbox,
+.character-name {
   background-color: rgba(200,200,200, 0.9);
 }
 .textbox--text {
-  margin: auto;
-  margin-bottom: 2em;
+  margin: 0 auto 2em;
   width: 90%;
-}
-.textbox--text {
   display: block;
   height: 7em;
-  margin-top: -0.5em;
+
+  .decision-timeleft {
+    position: absolute;
+    top: .2em;
+    right: .5em;
+  }
 }
 .textbox--chat {
   position: absolute;
@@ -105,6 +116,10 @@ body {
     }
   }
 }
+.character-name {
+  width: 90%;
+  margin: auto;
+}
 
 .textbox--text.is-off {
   display: none;
@@ -112,16 +127,53 @@ body {
 
 .decision {
   display: none;
+  position: relative;
   &.is-on {
+    positon: relative;
     display: block;
   }
 }
+.notice {
+  font-size: 28px;
+}
+
+.button {
+  padding: .5em 1em;
+  border: none;
+  // border: solid 2px @button-color;
+  background: white;
+  color: @button-color;
+  border-radius: 5px;
+  &:hover,
+  &:active {
+    background-color: @button-color;
+    color: white;
+  }
+}
+.button--start {
+
+}
+
+.decision-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  li {
+    display: inline-block;
+  }
+}
+
+
 
 @media (min-width: 40em) {
   .textbox--chat {
     width: 300px;
   }
   .screen {
+    display: none;
+  }
+  .screen.is-on {
     display: -webkit-flex;
     display: flex;
   }
@@ -145,7 +197,10 @@ body {
   .textbox--text:not(:empty) {
     height: 8em;
   }
-  .textbox--text
+  .center {
+    margin: auto;
+    text-align: center;
+  }
 }
 
 

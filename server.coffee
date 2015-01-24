@@ -76,7 +76,7 @@ countDown = (io) ->
       if failed_votes == 3
         endGame(io)
         return
-      time_left = 11
+      time_left = 7
       countDown io
       failed_votes++
     else
@@ -147,7 +147,7 @@ nextStep = (io) ->
         if decision_data && decision_data.length > 0
           decision_result = null
           already_voted = []
-          time_left = 11
+          time_left = 7
           in_decision = true
           io.emit 'render_decision', decision_data
           countDown io

@@ -1,19 +1,25 @@
 steps:
   -
-    background: "foo.png"
+    background: "flur.jpg"
     character: "bucketlady.png"
     duration: 4
     text: "Just a normal day in a psychiatry and you decided to break out, you now that you'll need the help of the other patients."
+    character_name: "Bucket Lady"
+    text_effect:
+      effect: "rollIn"
+  -
+    text: "Es war einmal"
     text_effect:
       effect: "pulse"
   -
-    character: "bucketlady.png"
+    character: "stephanie.png"
     character_effect: "fadeIn"
     text: "So, what do we do?"
     duration: 4
     sound: "chosen.ogg"
     text_effect:
       effect: "flipInY"
+    character_name: "Stephanie"
 decision:
   -
     scene: "1a"
