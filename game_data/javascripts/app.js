@@ -14,10 +14,26 @@ $('.textbox--chat').on('click', function() {
 });
 
 title.play();
+var vol = 1;
+var interval = 100; // 200ms interval
+
 $("#button").on("click", function(e) {
   e.preventDefault();
   socket.emit('start');
-  title.pause();
+  var fadeout = setInterval(
+  function() {
+    // Reduce volume by 0.05 as long as it is above 0
+    // This works as long as you start with a multiple of 0.05!
+    if (vol > 0) {
+      vol -= 0.05;
+      title.volume = vol;
+    }
+    else {
+      title.pause();
+      // Stop the setInterval when 0 is reached
+      clearInterval(fadeout);
+    }
+  }, interval);
   $('.screen').removeClass('is-on');
   $('#background').addClass('is-on');
 });
