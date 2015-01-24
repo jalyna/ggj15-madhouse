@@ -1,8 +1,10 @@
 steps:
   -
-    character: "bucketlady.png"
+   background: "flur.jpg"
+    character: "max.png"
     character_effect: "fadeIn"
     text: "I won't tell a spy that!"
+    character_name: "Max"
     duration: 4
     sound: "chosen.ogg"
     text_effect:
