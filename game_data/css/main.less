@@ -45,16 +45,17 @@ body {
   z-index: 0;
 }
 
-.textbox,
-.character-name {
-  background-color: rgba(200,200,200, 0.9);
-}
-.textbox--text {
+.textarea {
   margin: 0 auto 2em;
   width: 90%;
   display: block;
   height: 7em;
-
+  padding: 1.5em 1.6em;
+  background-image: url('../images/kasten.png');
+  background-size: 100%;
+  color: white;
+}
+.textbox--text {
   .decision-timeleft {
     position: absolute;
     top: .2em;
@@ -119,22 +120,9 @@ body {
     }
   }
 }
-.character-name {
-  width: 90%;
-  margin: auto;
-}
 
 .textbox--text.is-off {
   display: none;
-}
-
-.decision {
-  display: none;
-  position: relative;
-  &.is-on {
-    positon: relative;
-    display: block;
-  }
 }
 .notice {
   font-size: 28px;
@@ -144,19 +132,33 @@ body {
   padding: .5em 1em;
   border: none;
   // border: solid 2px @button-color;
-  background: white;
   color: @button-color;
-  border-radius: 5px;
+  border-radius: @border-radius;
   &:hover,
   &:active {
-    background-color: @button-color;
+    //background-color: @button-color;
+    background-color: rgba(200,200,200, 1);
     color: white;
   }
 }
 .button--start {
 
 }
-
+.decision {
+  display: none;
+  position: relative;
+  &.is-on {
+    positon: relative;
+    display: block;
+  }
+  .button {
+    color: #fff;
+    background-color: rgba(160,160,160, 0.5);
+    &:hover {
+      background-color: rgba(160,160,160, 1);
+    }
+  }
+}
 .decision-list {
   margin: 0;
   padding: 0;
@@ -166,8 +168,16 @@ body {
     display: inline-block;
   }
 }
-
-
+.character-name {
+  font-size: 18px;
+  font-weight: 600;
+  // &:after {
+  //   content: ":";
+  // }
+  // &:empty {
+  //   height: 0;
+  // }
+}
 
 @media (min-width: 40em) {
   .textbox--chat {
@@ -185,8 +195,9 @@ body {
             flex: 1;
     align-self: flex-end;
   }
-  .textbox--text {
-    width: 90%;
+  .textarea {
+    width: 86%;
+    min-height: 13em;
   }
   .character {
     max-width: 21em;
@@ -197,9 +208,6 @@ body {
     margin-bottom: 0;
     width: 300px;
     transform: translateX(0);
-  }
-  .textbox--text:not(:empty) {
-    height: 8em;
   }
   .center {
     margin: auto;
