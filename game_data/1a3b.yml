@@ -1,8 +1,10 @@
 steps:
   -
-    character: "bucketlady.png"
+   background: "flur.jpg"
+    character: "max.png"
     character_effect: "fadeIn"
     text: "No one can help me, no one is save, they will get you too!"
+    character_name: "Max"
     duration: 4
     sound: "chosen.ogg"
     text_effect:
