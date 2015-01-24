@@ -31,9 +31,12 @@
         </div>
       </div>
       <div class="textbox textbox--chat">
-        <h1><span id="user_counter"></span> voices in your head</h1>
-        <div id="messages"></div>
-        <form id="chat-form">
+        <h1>
+          <span id="user_counter"></span> voices in your head
+          <div><small>You are <span id="name"></span></small></div>
+        </h1>
+        <div class="messages" id="messages"></div>
+        <form id="chat-form" class="chat-form">
           <input type="text" id="message">
           <button type="submit">Send</button>
         </form>

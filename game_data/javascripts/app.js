@@ -125,6 +125,7 @@ socket.on('disconnect', function() {
 });
 
 socket.on('set_name', function(name) {
+  $("#name").html(name)
   console.log("YOU ARE "+name);
 });
 
