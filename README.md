@@ -22,3 +22,5 @@
 - [x] Chat Security
 - [x] Forks
 - [x] Chat Window Scroll to Bottom
+- [ ] Restart button
+- [ ] Goto
