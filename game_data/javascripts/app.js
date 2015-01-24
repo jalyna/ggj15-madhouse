@@ -11,6 +11,14 @@ $(document).on('click', 'button[data-option]', function(e){
   socket.emit('choose_option', option);
 });
 
+$(document).on('keypress', function(e){
+  if($("#options").is(":hidden")) {
+    return
+  }
+  opt = e.keyCode - 49
+  option = $("#options [data-option]:eq("+opt+")").click();
+});
+
 socket.on('user_counter', function(user_counter) {
   $("#user_counter").html(user_counter);
 });
