@@ -2,6 +2,15 @@
 
 [ggj15-madhouse.herokuapp.com](http://ggj15-madhouse.herokuapp.com/)
 
+## Getting Started
+
+You have to install npm and then:
+
+```
+$ npm install
+$ coffee server.coffee
+```
+
 ## TODO
 
 - [x] One vote per user

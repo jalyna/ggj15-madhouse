@@ -205,7 +205,7 @@ io.on 'connection', (socket) ->
     # One vote per user
     return if _.contains(already_voted, socket.id)
     # Only valid options
-    return unless _.some(decision_data, scene: option)
+    return unless _.some(decision_data, scene: "#{option}")
     console.log "OPTION", option
     decision_result ?= {}
     decision_result[option] ?= 0
