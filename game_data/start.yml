@@ -3,12 +3,13 @@ steps:
     background: "flur.jpg"
     character: "bucketlady.png"
     duration: 4
-    text: "UUUU Just a normal day in a psychiatry and you decided to break out, you now that you'll need the help of the other patients."
+    text: "Just a normal day in a psychiatry and you decided to break out, you now that you'll need the help of the other patients."
     character_name: "Bucket Lady"
+    sound: "chosen.ogg"
     text_effect:
       effect: "rollIn"
   -
-    text: "FOOOOFOOOO Es war einmal XXXXX"
+    text: "Es war einmal"
     duration: 2
     text_effect:
       effect: "flipInY"
