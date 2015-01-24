@@ -18,3 +18,4 @@
 - [x] Text effect
 - [ ] Image effect
 - [x] Key controls
+- [ ] Chat
