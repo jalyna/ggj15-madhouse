@@ -25,11 +25,4 @@ decision:
     label: "Go to the bathroom"
   -
     scene: "2c"
-    label: "Go to the livingroom"
-  -
-    scene: "2d"
     label: "Go to the cafeteria"
-  -
-    scene: "2e"
-    label: "hidden"
-    hidden: true
