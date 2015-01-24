@@ -19,6 +19,7 @@ step          = -1
 time_left     = 10
 in_decision   = false
 current_duration = 0
+already_voted = []
 
 app.use express.static(__dirname + '/game_data')
 
@@ -78,6 +79,7 @@ nextStep = (io) ->
       loadDecision ->
         if decision_data
           decision_result = null
+          already_voted = []
           time_left = 11
           in_decision = true
           io.emit 'render_decision', decision_data
@@ -107,13 +109,15 @@ io.on 'connection', (socket) ->
 
   socket.on 'choose_option', (option) ->
     return unless in_decision
+    # One vote per user
+    return if _.contains(already_voted, socket.id)
     # Only valid options
     return unless _.some(decision_data, scene: option)
-    console.log "OPTION"
-    console.log option
+    console.log "OPTION", option
     decision_result ?= {}
     decision_result[option] ?= 0
     decision_result[option]++
+    already_voted.push(socket.id)
 
   socket.on 'start', ->
     return unless step == -1

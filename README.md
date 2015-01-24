@@ -4,7 +4,7 @@
 
 ## TODO
 
-- [ ] One vote per user
+- [x] One vote per user
 - [x] Only valid votes
 - [ ] Hidden Option
 - [ ] Mechanism: equal votes
