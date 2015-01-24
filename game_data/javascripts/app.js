@@ -26,6 +26,9 @@ $("#button").on("click", function(e) {
     // This works as long as you start with a multiple of 0.05!
     if (vol > 0) {
       vol -= 0.05;
+      if(vol <= 0.0) {
+        vol = 0;
+      }
       title.volume = vol;
     }
     else {
@@ -133,6 +136,11 @@ socket.on('render_step', function(data) {
     }
   }
 });
+
+//$(document).on('mousemove', function (event) {
+//  motio.set('speedX', event.pageX - offset.left - motio.width / 2);
+//  motio.set('speedY', event.pageY - offset.top - motio.height / 2);
+//});
 
 socket.on('game_end', function(){
   console.log("GAME END");
