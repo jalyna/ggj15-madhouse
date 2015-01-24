@@ -3,7 +3,7 @@ steps:
     background: "flur.jpg"
     character: "bucketlady.png"
     duration: 4
-    text: "III Just a normal day in a psychiatry and you decided to break out, you now that you'll need the help of the other patients."
+    text: "UUUU Just a normal day in a psychiatry and you decided to break out, you now that you'll need the help of the other patients."
     character_name: "Bucket Lady"
     text_effect:
       effect: "rollIn"
