@@ -142,7 +142,7 @@ $(document).on('mousemove', function (event) {
   yp = (event.pageY - $(document).height()/2) / ($(document).width()/2) * 100;
   x = 50 - (xp / 3);
   y = 50 + (yp / 3);
-  $("#background").css("background-position", x+"% "+y+"%");
+  $("#background, #start").css("background-position", x+"% "+y+"%");
 });
 
 socket.on('game_end', function(){
