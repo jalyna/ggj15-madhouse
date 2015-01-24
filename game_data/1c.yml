@@ -1,9 +1,9 @@
 steps:
   -
     background: "flur.jpg"
-    character: "bucketlady.png"
+    character: "bert.png"
     character_effect: "fadeIn"
-    text: "That's good! You won't get it, that's my bucket!"
+    text: "Patient! Go back to your room!"
     duration: 4
     sound: "chosen.ogg"
     text_effect:
@@ -11,4 +11,8 @@ steps:
 decision:
   -
     scene: "2"
-    label: "Leave"
+    label: "(leave)"
+  -
+    scene: "c"
+    label: "hidden"
+    hidden: true

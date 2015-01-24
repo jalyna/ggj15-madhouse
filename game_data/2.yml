@@ -1,0 +1,35 @@
+steps:
+  -
+   background: "flur.jpg"
+   character: ""
+   duration: 4
+   text: "You try to find another person."
+   character_name: ""
+   sound: "chosen.ogg"
+   text_effect:
+      effect: "rollIn"
+  -
+    character: ""
+    character_effect: "fadeIn"
+    text: "So, what do we do?"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "2a"
+    label: "Go to the hallway"
+  -
+    scene: "2b"
+    label: "Go to the bathroom"
+  -
+    scene: "2c"
+    label: "Go to the livingroom"
+  -
+    scene: "2d"
+    label: "Go to the cafeteria"
+  -
+    scene: "2e"
+    label: "hidden"
+    hidden: true

@@ -1,19 +1,19 @@
 steps:
   -
-     background: "flur.jpg"
-     character: ""
-     duration: 3
-     text: '"Are you one of the Lizard Human?"'
-     text_effect:
+    background: "flur.jpg"
+    character: ""
+    duration: 3
+    text: '"Are you one of the Lizard Human?"'
+    text_effect:
       effect: "rollIn"
-      delayScale: 0.5
+    delayScale: 0.5
   -
-     character: "max.png"
-     character_effect: "fadeIn"
-     text: "You turn around and see a very nervous looking man"
-     duration: 4
-     sound: "chosen.ogg"
-     text_effect:
+    character: "max.png"
+    character_effect: "fadeIn"
+    text: "You turn around and see a very nervous looking man"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
       effect: "flipInY"
 decision:
   -

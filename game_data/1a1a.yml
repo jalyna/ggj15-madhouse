@@ -1,13 +1,13 @@
 steps:
   -
-     background: "flur.jpg"
-     character: "max.png"
-     character_effect: "fadeIn"
-     text: "You don't know about them yet. Keep it that way!"
-     character_name: "Max"
-     duration: 4
-     sound: "chosen.ogg"
-     text_effect:
+    background: "flur.jpg"
+    character: "max.png"
+    character_effect: "fadeIn"
+    text: "You don't know about them yet. Keep it that way!"
+    character_name: "Max"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
       effect: "flipInY"
 decision:
   -

@@ -27,7 +27,7 @@ $("#button").on("click", function(e) {
     if (vol > 0) {
       vol -= 0.05;
       if(vol <= 0.0) {
-        vol = 0;
+        vol = 0.01;
       }
       title.volume = vol;
     }
@@ -137,10 +137,13 @@ socket.on('render_step', function(data) {
   }
 });
 
-//$(document).on('mousemove', function (event) {
-//  motio.set('speedX', event.pageX - offset.left - motio.width / 2);
-//  motio.set('speedY', event.pageY - offset.top - motio.height / 2);
-//});
+$(document).on('mousemove', function (event) {
+  xp = (event.pageX - $(document).width()/2) / ($(document).width()/2) * 100;
+  yp = (event.pageY - $(document).height()/2) / ($(document).width()/2) * 100;
+  x = 50 - (xp / 3);
+  y = 50 + (yp / 3);
+  $("#background, #start").css("background-position", x+"% "+y+"%");
+});
 
 socket.on('game_end', function(){
   console.log("GAME END");

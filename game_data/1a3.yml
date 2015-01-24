@@ -1,20 +1,20 @@
 steps:
   -
-     background: "flur.png"
-     character: "max.png"
-     duration: 10
-     text: "Its not important what they are, it's important that they are after me!"
-     character_name: "Max"
-     text_effect:
+    background: "flur.png"
+    character: "max.png"
+    duration: 10
+    text: "Its not important what they are, it's important that they are after me!"
+    character_name: "Max"
+    text_effect:
       effect: "rollIn"
   -
-     character: "max.png"
-     character_effect: "fadeIn"
-     text: "I'm sure!"
-     character_name: "Max"
-     duration: 4
-     sound: "chosen.ogg"
-     text_effect:
+    character: "max.png"
+    character_effect: "fadeIn"
+    text: "I'm sure!"
+    character_name: "Max"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
       effect: "flipInY"
 decision:
   -

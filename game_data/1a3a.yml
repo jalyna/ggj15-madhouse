@@ -1,13 +1,13 @@
 steps:
   -
-     background: "flur.jpg"
-     character: "max.png"
-     character_effect: "fadeIn"
-     text: "I won't tell a spy that!"
-     character_name: "Max"
-     duration: 4
-     sound: "chosen.ogg"
-     text_effect:
+    background: "flur.jpg"
+    character: "max.png"
+    character_effect: "fadeIn"
+    text: "I won't tell a spy that!"
+    character_name: "Max"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
       effect: "flipInY"
 decision:
   -
