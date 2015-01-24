@@ -5,8 +5,10 @@
     <title>madhouse</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/css/animate.css" />
     <link rel="stylesheet" type="text/css" href="/bootstrap/less/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,23 +19,20 @@
   </head>
   <body>
     <article class="screen">
-      <h1>Multiple People at once flew over the cuckoo's nest</h1>
-      <button class="button button--start" id="button">START</button>
-    </article>
-    <article class="screen is-on">
       <div class="bg-full" id="background"></div>
-      <div class="character" id="character"></div>
-      <div class="textbox textbox--text" id="text"></div>
-      <div class="decicion textbox">
-        <div class="decision-timeleft" id="time_left"></div>
-        <ul class="decision-list" id="options"></ul>
+      <!-- <h1>Multiple People at once flew over the cuckoo's nest</h1> -->
+      <div class="screen-index">
+        <button class="button button--start" id="button">START</button>
+        <div class="character" id="character"></div>
+        <div class="textbox textbox--text" id="text"></div>
+        <div class="decision textbox textbox--text">
+          <div class="decision-timeleft" id="time_left"></div>
+          <ul class="decision-list" id="options"></ul>
+        </div>
       </div>
       <div class="textbox textbox--chat">
         <h3><span id="user_counter"></span> voices in your head</h3>
       </div>
-    </article>
-    <article class="screen">
-      
     </article>
 
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
