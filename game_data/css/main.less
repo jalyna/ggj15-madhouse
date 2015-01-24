@@ -28,45 +28,69 @@ body {
 .screen {
   width: 100vw;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: green;
 }
 .bg-full {
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  // bottom: 0;
-  // left: 0;
-  // width: 100vw;
-  // height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   margin: auto;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-color: green;
+  z-index: -1;
 }
 .screen-index {
   // margin: auto;
   // width: 30em;
 }
 .character {
-  max-width: 15em;
-  height: 20em;
+  max-width: 10em;
+  height: 15em;
   margin: auto;
   background: blue;
 }
 .textbox {
-  background-color: rgba(0,0,0, 0.1);
+  background-color: rgba(200,200,200, 0.9);
 }
 .textbox--text {
   margin: auto;
+  margin-top: 3em;
+  margin-bottom: 2em;
   width: 90%;
 }
 .textbox--text:not(:empty) {
-  height: 10em;
+  height: 7em;
 }
 .textbox--chat {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 90%;
-  // max-width: 30em;
-  // height: 100%;
+  height: 100%;
+  padding: 1em;
+  margin: auto;
+  margin-bottom: 2em;
+  transform: translateX(95%);
+  transition: ease 200ms transform;
+  &.is-open {
+    transform: translateX(0);
+  }
+  h1 {
+    font-size: 20px;
+    margin: 0 0 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px gray solid;
+    text-align: center;
+  }
 }
 
 @media (min-width: 40em) {
@@ -83,6 +107,20 @@ body {
   }
   .textbox--text {
     width: 90%;
+  }
+  .character {
+    max-width: 17em;
+    height: 22em;
+    margin: auto;
+    background: blue;
+  }
+  .textbox--chat {
+    position: static;
+    margin-bottom: 0;
+    transform: translateX(0);
+  }
+  .textbox--text:not(:empty) {
+    height: 8em;
   }
 }
 

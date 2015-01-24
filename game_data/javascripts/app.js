@@ -1,5 +1,12 @@
 var socket = io();
 
+$('.textbox--chat').on('click', function() {
+  console.log('sdifs');
+  if (window.innerWidth < 640) {
+    $(this).toggleClass('is-open');
+  }
+});
+
 $("#button").on("click", function(e) {
   e.preventDefault();
   socket.emit('start');
