@@ -20,13 +20,13 @@
   },
   "homepage": "https://github.com/jalyna/ggj15-madhouse",
   "devDependencies": {
-    "coffee-script": "^1.8.0",
-    "js-yaml": "^3.2.5",
-    "nodemon": "^1.3.2"
   },
   "dependencies": {
     "express": "^4.10.2",
     "lodash": "^2.4.1",
-    "socket.io": "^1.3.2"
+    "socket.io": "^1.3.2",
+    "coffee-script": "^1.8.0",
+    "js-yaml": "^3.2.5",
+    "nodemon": "^1.3.2"
   }
 }
