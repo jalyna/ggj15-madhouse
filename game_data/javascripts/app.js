@@ -12,8 +12,15 @@ $(document).on('click', 'button[data-option]', function(e){
 });
 
 $(document).on('keypress', function(e){
+  e.preventDefault();
+
+  if(e.keyCode == 13 && $("#button").is(":visible")) {
+    $("#button").click()
+    return;
+  }
+
   if($("#options").is(":hidden")) {
-    return
+    return;
   }
   opt = e.keyCode - 49
   option = $("#options [data-option]:eq("+opt+")").click();
