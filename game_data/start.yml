@@ -1,7 +1,8 @@
 steps:
   -
-    background: "foo.png"
+    background: "flur.jpg"
     character: "bucketlady.png"
+    character_name: "Bucket Lady"
     duration: 3
     text: "Hi everyone"
     text_effect:
@@ -13,14 +14,14 @@ steps:
       shuffle: true
       delayScale: 1.5
   -
-    character: "bucketlady.png"
+    character: "stephanie.png"
     character_effect: "fadeIn"
     text: "Nice to have you here"
     duration: 4
     sound: "chosen.ogg"
     text_effect:
       effect: "flipInY"
-    character_name: "Bucket Lady"
+    character_name: "Stephanie"
 decision:
   -
     scene: "a"
