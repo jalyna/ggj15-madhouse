@@ -13,3 +13,4 @@
 - [ ] Responsive UI
 - [ ] Heroku Deployment
 - [x] End game after 4 failed decisions
+- [ ] Preload assets
