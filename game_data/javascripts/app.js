@@ -2,6 +2,9 @@ var socket = io();
 var tick = new Audio('/music/timetick.ogg');
 var choose = new Audio('/music/choose.ogg');
 var chosen = new Audio('/music/chosen.ogg');
+var send_message = new Audio('/music/send_message.wav');
+
+$("#message").focus();
 
 $('.textbox--chat').on('click', function() {
   if (window.innerWidth < 640) {
@@ -14,11 +17,23 @@ $("#button").on("click", function(e) {
   socket.emit('start');
 });
 
+$("#chat-form").on("submit", function(e) {
+  e.preventDefault();
+  send_message.play();
+  socket.emit('message', $("#message").val());
+  $("#message").val("");
+  $("#message").focus();
+});
+
 $(document).on('click', 'button[data-option]', function(e){
   option = $(e.currentTarget).data('option');
   console.log("YOU CHOOSE", option);
   choose.play()
   socket.emit('choose_option', option);
+});
+
+$(document).on('keypress', '#message, #chat-form', function(e){
+  e.stopPropagation();
 });
 
 $(document).on('keypress', function(e){
@@ -38,6 +53,10 @@ $(document).on('keypress', function(e){
 
 socket.on('user_counter', function(user_counter) {
   $("#user_counter").html(user_counter);
+});
+
+socket.on('add_message', function(msg){
+  $("#messages").append('<p><strong>'+msg.author+':</strong> '+msg.message+'</p>');
 });
 
 socket.on('update_time_left', function(time_left) {
@@ -103,6 +122,10 @@ socket.on('max_players_reached', function() {
 
 socket.on('disconnect', function() {
   console.log("YOU WERE DISCONNECTED");
+});
+
+socket.on('set_name', function(name) {
+  console.log("YOU ARE "+name);
 });
 
 socket.on('set_decision', function(decision) {

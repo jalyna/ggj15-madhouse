@@ -28,6 +28,9 @@ failed_votes     = 0
 preload_images   = []
 preload_sounds   = []
 played_scenes    = []
+chat_messages    = []
+names            = {}
+name_list        = []
 
 app.use lessMiddleware(__dirname + '/game_data')
 app.use express.static(__dirname + '/game_data')
@@ -148,10 +151,18 @@ calcNextScene = (io, fork) ->
     if _.contains(played_scenes, branch.condition)
       return branch.scene
 
+setName = (id) ->
+  names[id] = _.sample(_.difference(name_list, _.values(names)))
+
+removeName = (id) ->
+  delete names[id]
+
 
 loadScene scene
 getPreloadData()
 getPreloadSounds()
+fs.readFile "game_data/names.yml", "utf-8", (err, data) =>
+  name_list = yaml.load(data)
 
 # INDEX
 app.get '/', (req, res) ->
@@ -187,11 +198,21 @@ io.on 'connection', (socket) ->
     played_scenes = []
     nextStep(io)
 
+  socket.on 'message', (message) ->
+    msg = { message: message, author: names[socket.id] }
+    chat_messages.push(msg)
+    chat_messages.unshift() if chat_messages.length >= 20
+    io.emit 'add_message', msg
+
   console.log "a user connected whoop whoop #{user_counter}"
+  setName(socket.id)
   user_counter++
   io.emit 'user_counter', user_counter
+  socket.emit 'set_name', names[socket.id]
   socket.emit 'render_step', step_data
   socket.emit 'preload_images', preload_images
   socket.emit 'preload_sounds', preload_sounds
+  for msg in chat_messages
+    socket.emit 'add_message', msg
 
 http.listen port

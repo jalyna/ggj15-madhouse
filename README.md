@@ -18,4 +18,7 @@
 - [x] Text effect
 - [x] Image effect
 - [x] Key controls
-- [ ] Chat
+- [x] Chat
+- [ ] Chat Security
+- [x] Forks
+- [ ] Chat Window Scroll to Bottom
