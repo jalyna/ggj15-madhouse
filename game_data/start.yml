@@ -8,9 +8,10 @@ steps:
     text_effect:
       effect: "rollIn"
   -
-    text: "Es war einmal"
+    text: "FOOOOFOOOO Es war einmal XXXXX"
+    duration: 2
     text_effect:
-      effect: "pulse"
+      effect: "flipInY"
   -
     character: "stephanie.png"
     character_effect: "fadeIn"
