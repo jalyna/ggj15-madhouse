@@ -1,8 +1,10 @@
 steps:
   -
-    character: "bucketlady.png"
+   background: "flur.jpg"
+    character: "max.png"
     character_effect: "fadeIn"
     text: "YOU ARE ONE OF THEM!!"
+    character_name: "Max"
     duration: 4
     sound: "chosen.ogg"
     text_effect:
