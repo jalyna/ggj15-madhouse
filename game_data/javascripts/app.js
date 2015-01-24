@@ -3,6 +3,7 @@ var tick = new Audio('/music/timetick.ogg');
 var choose = new Audio('/music/choose.ogg');
 var chosen = new Audio('/music/chosen.ogg');
 var send_message = new Audio('/music/send_message.wav');
+var title = new Audio('/music/title.ogg');
 
 $("#message").focus();
 
@@ -12,9 +13,30 @@ $('.textbox--chat').on('click', function() {
   }
 });
 
+title.play();
+var vol = 1;
+var interval = 100; // 200ms interval
+
 $("#button").on("click", function(e) {
   e.preventDefault();
   socket.emit('start');
+  var fadeout = setInterval(
+  function() {
+    // Reduce volume by 0.05 as long as it is above 0
+    // This works as long as you start with a multiple of 0.05!
+    if (vol > 0) {
+      vol -= 0.05;
+      if(vol <= 0.0) {
+        vol = 0;
+      }
+      title.volume = vol;
+    }
+    else {
+      title.pause();
+      // Stop the setInterval when 0 is reached
+      clearInterval(fadeout);
+    }
+  }, interval);
   $('.screen').removeClass('is-on');
   $('#background').addClass('is-on');
 });
@@ -115,8 +137,14 @@ socket.on('render_step', function(data) {
   }
 });
 
+//$(document).on('mousemove', function (event) {
+//  motio.set('speedX', event.pageX - offset.left - motio.width / 2);
+//  motio.set('speedY', event.pageY - offset.top - motio.height / 2);
+//});
+
 socket.on('game_end', function(){
   console.log("GAME END");
+  title.play();
   $('#start').css('background-image', 'images/end.png');
   $('.screen').removeClass('is-on');
   $('#start').addClass('is-on');
@@ -125,6 +153,7 @@ socket.on('game_end', function(){
 
 socket.on('debug', function(message) {
   console.log('DEBUG: ' + message);
+  $("#error").html(message);
 });
 
 var myimages = [];
