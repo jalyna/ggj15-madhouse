@@ -45,7 +45,7 @@ loadStep = (cb) ->
   step_data = scene_data['steps'][step]
   cb.call() if cb
 loadDecision = (cb) ->
-  decision_data = scene_data['decision']
+  decision_data = _.reject(scene_data['decision'], 'hidden')
   cb.call() if cb
 countDown = (io) ->
   if time_left <= 0
@@ -79,7 +79,12 @@ getDecision = ->
   for k, v of decision_result
     if v == best
       results.push k
-  _.sample(results)
+
+  hidden = _.filter(scene_data['decision'], 'hidden')
+  if results.length > 1 && hidden.length > 0
+    _.sample(_.map(hidden, 'scene'))
+  else
+    _.sample(results)
 endGame = (io) ->
   io.emit 'game_end'
   setTimeout (->

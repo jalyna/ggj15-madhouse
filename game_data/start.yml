@@ -17,3 +17,7 @@ decision:
   -
     scene: "b"
     label: "Lieber B"
+  -
+    scene: "c"
+    label: "hidden"
+    hidden: true
