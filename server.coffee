@@ -8,6 +8,7 @@ http           = require('http').Server(app)
 io             = require('socket.io')(http)
 lessMiddleware = require('less-middleware')
 S              = require('string')
+request        = require('request')
 
 # CONSTANTS
 MAX_PLAYERS = 20
@@ -51,10 +52,11 @@ getPreloadSounds = (cb) ->
     cb.call() if cb
 loadScene = (io, name, cb) ->
   try
-    fs.readFile "game_data/#{name}.yml", "utf-8", (err, data) =>
-      scene_data = yaml.load(data)
-      played_scenes.push(name)
-      cb.call() if cb
+    request "https://raw.githubusercontent.com/jalyna/ggj15-madhouse/master/game_data/#{name}.yml", (err, res, body) ->
+      if !error && res.statusCode == 200
+        scene_data = yaml.load(body)
+        played_scenes.push(name)
+        cb.call() if cb
   catch error
     console.log("ERROR: #{error}")
     endGame(io)
