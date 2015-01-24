@@ -53,7 +53,8 @@ getPreloadSounds = (cb) ->
     cb.call() if cb
 loadScene = (io, name, cb) ->
   try
-    request "https://raw.githubusercontent.com/jalyna/ggj15-madhouse/master/game_data/#{name}.yml", (err, res, body) ->
+    token = Math.random().toString(36).substring(7)
+    request {'cache-control': 'no-cache', url:"https://raw.githubusercontent.com/jalyna/ggj15-madhouse/master/game_data/#{name}.yml?token=#{token}"}, (err, res, body) ->
       if !error && res.statusCode == 200
         scene_data = yaml.load(body)
         played_scenes.push(name)

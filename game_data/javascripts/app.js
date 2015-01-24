@@ -163,6 +163,7 @@ socket.on('set_name', function(name) {
 
 socket.on('set_decision', function(decision) {
   console.log("DESICION: " + decision);
+  $("#current_scene").html(decision)
   chosen.play();
   $('.decision').removeClass('is-on');
   $('.textbox--text:not(.decision)').removeClass('is-off');
