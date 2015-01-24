@@ -3,10 +3,11 @@ yaml = require('js-yaml')
 _ = require('lodash')
 
 # Load modules
-express = require('express')
-app     = express()
-http    = require('http').Server(app)
-io      = require('socket.io')(http)
+express        = require('express')
+app            = express()
+http           = require('http').Server(app)
+io             = require('socket.io')(http)
+lessMiddleware = require('less-middleware')
 
 # CONSTANTS
 MAX_PLAYERS = 20
@@ -25,6 +26,7 @@ current_duration = 0
 already_voted    = []
 failed_votes     = 0
 
+app.use lessMiddleware(__dirname + '/game_data')
 app.use express.static(__dirname + '/game_data')
 
 # LOAD SCENE
