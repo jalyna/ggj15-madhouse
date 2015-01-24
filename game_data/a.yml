@@ -1,3 +1,6 @@
-steps:
+fork:
   -
-    text: "Hallo welt"
+    condition: b
+    scene: c
+  -
+    scene: b

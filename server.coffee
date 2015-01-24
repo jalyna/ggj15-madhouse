@@ -7,6 +7,7 @@ app            = express()
 http           = require('http').Server(app)
 io             = require('socket.io')(http)
 lessMiddleware = require('less-middleware')
+S              = require('string')
 
 # CONSTANTS
 MAX_PLAYERS = 20
@@ -27,6 +28,10 @@ already_voted    = []
 failed_votes     = 0
 preload_images   = []
 preload_sounds   = []
+played_scenes    = []
+chat_messages    = []
+names            = {}
+name_list        = []
 
 app.use lessMiddleware(__dirname + '/game_data')
 app.use express.static(__dirname + '/game_data')
@@ -47,6 +52,7 @@ getPreloadSounds = (cb) ->
 loadScene = (name, cb) ->
   fs.readFile "game_data/#{name}.yml", "utf-8", (err, data) =>
     scene_data = yaml.load(data)
+    played_scenes.push(name)
     cb.call() if cb
 loadStep = (cb) ->
   step_data = scene_data['steps'][step]
@@ -113,6 +119,15 @@ nextStep = (io) ->
     return
   console.log "NEXT"
   step++
+
+  if scene_data.fork
+    scene = calcNextScene(io, scene_data.fork)
+    step = -1
+    console.log "FORK", scene
+    loadScene scene, ->
+      nextStep(io)
+    return
+
   loadStep ->
     if step_data
       current_duration = step_data.duration || 1
@@ -131,10 +146,24 @@ nextStep = (io) ->
         else
           endGame(io)
 
+calcNextScene = (io, fork) ->
+  for branch in fork
+    return branch.scene unless branch.condition
+    if _.contains(played_scenes, branch.condition)
+      return branch.scene
+
+setName = (id) ->
+  names[id] = _.sample(_.difference(name_list, _.values(names)))
+
+removeName = (id) ->
+  delete names[id]
+
 
 loadScene scene
 getPreloadData()
 getPreloadSounds()
+fs.readFile "game_data/names.yml", "utf-8", (err, data) =>
+  name_list = yaml.load(data)
 
 # INDEX
 app.get '/', (req, res) ->
@@ -167,13 +196,25 @@ io.on 'connection', (socket) ->
   socket.on 'start', ->
     return unless step == -1
     failed_votes = 0
+    played_scenes = []
     nextStep(io)
 
+  socket.on 'message', (message) ->
+    message = S(message).stripTags().s
+    msg = { message: message, author: names[socket.id] }
+    chat_messages.push(msg)
+    chat_messages.unshift() if chat_messages.length >= 20
+    io.emit 'add_message', msg
+
   console.log "a user connected whoop whoop #{user_counter}"
+  setName(socket.id)
   user_counter++
   io.emit 'user_counter', user_counter
+  socket.emit 'set_name', names[socket.id]
   socket.emit 'render_step', step_data
   socket.emit 'preload_images', preload_images
   socket.emit 'preload_sounds', preload_sounds
+  for msg in chat_messages
+    socket.emit 'add_message', msg
 
 http.listen port
