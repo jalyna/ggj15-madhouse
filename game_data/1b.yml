@@ -11,7 +11,7 @@ steps:
 decision:
   -
     scene: "1b1"
-    label: No"
+    label: "No"
   -
     scene: "1b2"
     label: "Yes"
