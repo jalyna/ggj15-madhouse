@@ -4,10 +4,10 @@ steps:
     character: "Bert.png"
     character_effect: "fadeIn"
     text: "Patient! Go back to your room!"
-   duration: 4
-   sound: "chosen.ogg"
-   text_effect:
-    effect: "flipInY"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "flipInY"
 decision:
   -
     scene: "2"
