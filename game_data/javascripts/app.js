@@ -204,8 +204,13 @@ socket.on('set_decision', function(decision) {
   $("#current_scene").html(decision);
   chosen.play();
   $('#text').empty();
-  $('.decision').removeClass('is-on');
-  $('.textbox--text:not(.decision)').removeClass('is-off');
+  $("button[data-option="+decision+"]").addClass("chosen-decision");
+  setTimeout(function() {
+    console.log("AAAA");
+    $("button[data-option="+decision+"]").removeClass("chosen-decision");
+    $('.decision').removeClass('is-on');
+    $('.textbox--text:not(.decision)').removeClass('is-off');
+  }, 1000);
 });
 
 socket.on('render_decision', function(data) {

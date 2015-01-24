@@ -187,9 +187,15 @@ h1 {
     color: #fff;
     background-color: rgba(160,160,160, 0.5);
     margin-bottom: 1em;
+    outline: none;
     &:hover {
       background-color: rgba(160,160,160, 1);
     }
+    transition: ease 200ms transform;
+  }
+  .chosen-decision {
+    background: #c064a8 !important;
+    transform: scale(1.3);
   }
 }
 .decision-list {
@@ -207,6 +213,7 @@ h1 {
   margin: auto;
   text-align: center;
 }
+
 
 @media (min-width: 40em) {
 
