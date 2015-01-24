@@ -15,3 +15,4 @@
 - [x] End game after 4 failed decisions
 - [ ] Preload assets
 - [x] Send result to client
+- [ ] Text effect
