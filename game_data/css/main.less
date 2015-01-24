@@ -17,6 +17,13 @@ body {
   letter-spacing: -1px;
   line-height: 1.45;
   overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 0 0 1em;
+  text-align: center;
 }
 
 .screen {
@@ -27,17 +34,24 @@ body {
   background-position: center;
   display: none;
 }
+#start {
+  padding-top: 1em;
+}
 .screen.is-on {
   display: block;
 }
 .screen-index {
   // margin: auto;
   // width: 30em;
+  min-height: 100%;
 }
 .character {
-  position: relative;
-  max-width: 13em;
-  height: 16em;
+  position: absolute;
+  bottom: 7em;
+  left: 0;
+  right: 0;
+  width: 15em;
+  height: 18em;
   margin: auto;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -46,20 +60,32 @@ body {
 }
 
 .textarea {
-  margin: 0 auto 2em;
+  position: absolute;
+  bottom: 0;
+  margin: -0.6em auto 2em;
   width: 90%;
   display: block;
-  height: 7em;
+  min-height: 7em;
   padding: 1.5em 1.6em;
   background-image: url('../images/kasten.png');
-  background-size: 100%;
+  background-size: 100% 100%;
   color: white;
+  font-size: 18px;
 }
 .textbox--text {
   .decision-timeleft {
     position: absolute;
-    top: .2em;
+    top: -4em;
     right: .5em;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    font-weight: 600;
+    background-color: rgba(160,160,160, 0.9);
+    border-radius: 50%;
+    overflow: hidden;
+    line-height: 2;
+    text-align: center;
   }
 }
 .textbox--chat {
@@ -78,17 +104,16 @@ body {
   &.is-open {
     transform: translateX(0);
   }
-  h1 {
-    font-size: 20px;
-    margin: 0 0 1em;
-    padding-bottom: 1em;
-    border-bottom: 1px gray solid;
-    text-align: center;
-    height: 10%;
-  }
   .messages {
     overflow-y: auto;
     height: 80%;
+  }
+  h1 {
+    padding-bottom: 1em;
+    border-bottom: 1px gray solid;
+    height: 10%;
+    margin-bottom: 0;
+    font-size: 22px;
   }
   .chat-form {
     height: 10%;
@@ -180,6 +205,11 @@ body {
 }
 
 @media (min-width: 40em) {
+
+  html,
+  body {
+    overflow-y: default;
+  }
   .textbox--chat {
     width: 300px;
   }
@@ -196,10 +226,12 @@ body {
     align-self: flex-end;
   }
   .textarea {
+    position: static;
     width: 86%;
     min-height: 13em;
   }
   .character {
+    position: relative;
     max-width: 21em;
     height: 25em;
   }

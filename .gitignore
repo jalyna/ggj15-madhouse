@@ -1,3 +1,4 @@
 node_modules
 npm-debug.log
-game-data/css/main.css
+game_data/css/main.css
+**/main.css
