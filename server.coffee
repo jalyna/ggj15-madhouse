@@ -2,25 +2,6 @@ fs = require('fs')
 yaml = require('js-yaml')
 _ = require('lodash')
 
-#handler = (req, res) ->
-  # fs.readFile __dirname + "/index.html", (err, data) ->
-  #   if err
-  #     res.writeHead 500
-  #     return res.end("Error loading index.html")
-  #   res.writeHead 200
-
-
-  #   fs.readFile "game_data/start.yml", "utf-8", (err, data) =>
-  #     if (err) 
-  #       console.log "Error: #{err}"
-  #       return
-  #     data = yaml.load(data)
-  #     console.log(data)
-
-  #   res.end data
-
-
-
 # Load modules
 express = require('express')
 app     = express()
@@ -117,13 +98,16 @@ io.on 'connection', (socket) ->
 
   socket.on 'choose_option', (option) ->
     return unless in_decision
+    # Only valid options
+    return unless _.some(decision_data, scene: option)
     console.log "OPTION"
     console.log option
     decision_result ?= {}
     decision_result[option] ?= 0
     decision_result[option]++
 
-  socket.on 'next', ->
+  socket.on 'start', ->
+    return unless step == -1
     nextStep(io)
 
   console.log "a user connected whoop whoop #{user_counter}"

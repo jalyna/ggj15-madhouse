@@ -26,7 +26,7 @@
 
       $("#button").on("click", function(e) {
         e.preventDefault();
-        socket.emit('next');
+        socket.emit('start');
       });
 
       $(document).on('click', '#options li', function(e){
@@ -59,8 +59,9 @@
         if(data) {
           console.log(data);
           $("#options").html('');
-          for (var option in data) {
-            $("#options").append('<li data-option="'+data[option]+'">'+option+'</li>');
+          for(var i = 0; i < data.length; i++) {
+            opt = data[i]
+            $("#options").append('<li data-option="'+opt.scene+'">'+opt.label+'</li>');
           }
         }
       });

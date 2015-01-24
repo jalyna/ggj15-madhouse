@@ -5,5 +5,9 @@ steps:
   -
     text: "Nice to have you here"
 decision:
-  "Ich nehme A": "a"
-  "Lieber b": "b"
+  -
+    scene: "a"
+    label: "Ich nehme A"
+  -
+    scene: "b"
+    label: "Lieber B"
