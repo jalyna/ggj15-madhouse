@@ -12,6 +12,7 @@ steps:
     character: ""
     character_effect: "fadeIn"
     text: "What do you think is the answer to this question? A, B ooor C? Chose wisely."
+    character_name: "Tabea"
     duration: 4
     sound: "chosen.ogg"
     text_effect:
