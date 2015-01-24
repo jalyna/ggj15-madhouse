@@ -1,8 +1,7 @@
-fs = require('fs')
-yaml = require('js-yaml')
-_ = require('lodash')
-
 # Load modules
+fs             = require('fs')
+yaml           = require('js-yaml')
+_              = require('lodash')
 express        = require('express')
 app            = express()
 http           = require('http').Server(app)
