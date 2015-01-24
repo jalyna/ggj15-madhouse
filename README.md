@@ -7,7 +7,7 @@
 - [x] One vote per user
 - [x] Only valid votes
 - [ ] Hidden Option
-- [ ] Mechanism: equal votes
+- [x] Mechanism: equal votes
 - [x] Maximum players
 - [x] Duration for steps
 - [ ] Responsive UI

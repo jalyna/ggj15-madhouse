@@ -75,9 +75,11 @@ countDown = (io) ->
 getDecision = ->
   values = _.values(decision_result)
   best = _.max(values)
+  results = []
   for k, v of decision_result
     if v == best
-      return k
+      results.push k
+  _.sample(results)
 endGame = (io) ->
   io.emit 'game_end'
   setTimeout (->
