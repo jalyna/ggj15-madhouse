@@ -55,6 +55,10 @@
         }
       });
 
+      socket.on('game_end', function(){
+        console.log("GAME END");
+      });
+
       socket.on('render_decision', function(data) {
         if(data) {
           console.log(data);

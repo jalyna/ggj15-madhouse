@@ -20,6 +20,7 @@ time_left     = 10
 in_decision   = false
 current_duration = 0
 already_voted = []
+failed_votes = 0
 
 app.use express.static(__dirname + '/game_data')
 
@@ -39,8 +40,12 @@ countDown = (io) ->
   if time_left <= 0
     console.log "RESULT", decision_result
     if decision_result == null
+      if failed_votes == 3
+        endGame(io)
+        return
       time_left = 11
       countDown io
+      failed_votes++
     else
       in_decision = false
       scene = getDecision()
@@ -59,6 +64,16 @@ getDecision = ->
   for k, v of decision_result
     if v == best
       return k
+endGame = (io) ->
+  io.emit 'game_end'
+  setTimeout (->
+    scene = 'start'
+    step = -1
+    step_data = {}
+    loadScene scene
+    io.emit 'render_step', step_data
+  ), 3000
+
 nextStep = (io) ->
   return if in_decision
   if current_duration > 0
@@ -84,15 +99,8 @@ nextStep = (io) ->
           in_decision = true
           io.emit 'render_decision', decision_data
           countDown io
-        else 
-          io.emit 'game_end'
-          setTimeout (->
-            scene = 'start'
-            step = -1
-            step_data = {}
-            loadScene scene
-            io.emit 'render_step', step_data
-          ), 3000
+        else
+          endGame(io)
 
 
 loadScene scene
@@ -121,6 +129,7 @@ io.on 'connection', (socket) ->
 
   socket.on 'start', ->
     return unless step == -1
+    failed_votes = 0
     nextStep(io)
 
   console.log "a user connected whoop whoop #{user_counter}"

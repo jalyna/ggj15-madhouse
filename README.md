@@ -12,4 +12,4 @@
 - [x] Duration for steps
 - [ ] Responsive UI
 - [ ] Heroku Deployment
-- [ ] End game after 3 failed decisions
+- [x] End game after 4 failed decisions
