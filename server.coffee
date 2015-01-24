@@ -25,12 +25,18 @@ in_decision      = false
 current_duration = 0
 already_voted    = []
 failed_votes     = 0
+preload_data     = []
 
 app.use lessMiddleware(__dirname + '/game_data')
 app.use express.static(__dirname + '/game_data')
 
 # LOAD SCENE
 
+getPreloadData = (cb) ->
+  fs.readdir "game_data/images/", (err, files) =>
+    preload_data = _.filter files, (f) ->
+      f != '.DS_Store'
+    cb.call() if cb
 loadScene = (name, cb) ->
   fs.readFile "game_data/#{name}.yml", "utf-8", (err, data) =>
     scene_data = yaml.load(data)
@@ -112,6 +118,7 @@ nextStep = (io) ->
 
 
 loadScene scene
+getPreloadData()
 
 # INDEX
 app.get '/', (req, res) ->
@@ -150,5 +157,6 @@ io.on 'connection', (socket) ->
   user_counter++
   io.emit 'user_counter', user_counter
   socket.emit 'render_step', step_data
+  socket.emit 'preload_data', preload_data
 
 http.listen port

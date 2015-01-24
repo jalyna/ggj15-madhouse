@@ -53,6 +53,16 @@ socket.on('game_end', function(){
   console.log("GAME END");
 });
 
+var myimages = [];
+
+socket.on('preload_data', function(files) {
+  console.log(files);
+  for (i=0;i<files.length;i++){
+    myimages[i] = new Image();
+    myimages[i].src = "/images/" + files[i];
+  }
+});
+
 socket.on('max_players_reached', function() {
   console.log("MAX PLAYERS");
 });

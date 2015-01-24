@@ -13,8 +13,8 @@
 - [ ] Responsive UI
 - [x] Heroku Deployment
 - [x] End game after 4 failed decisions
-- [ ] Preload assets
+- [x] Preload assets
 - [x] Send result to client
 - [x] Text effect
 - [ ] Image effect
-- [ ] Key controls
+- [x] Key controls
