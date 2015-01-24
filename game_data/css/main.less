@@ -70,7 +70,7 @@ h1 {
   background-image: url('../images/kasten.png');
   background-size: 100% 100%;
   color: white;
-  font-size: 22px;
+  font-size: 18px;
 }
 .textbox--text {
   .decision-timeleft {
@@ -154,8 +154,11 @@ h1 {
 }
 .notice {
   font-size: 28px;
+  text-align: center;
 }
-
+#button {
+  display: inline-block;
+}
 .button {
   padding: .5em 1em;
   border: none;
@@ -197,6 +200,10 @@ h1 {
   font-size: 18px;
   font-weight: 600;
 }
+.center {
+  margin: auto;
+  text-align: center;
+}
 
 @media (min-width: 40em) {
 
@@ -224,6 +231,7 @@ h1 {
     bottom: none;
     width: 86%;
     min-height: 8em;
+    font-size: 22px;
   }
   .character {
     position: static;
@@ -237,10 +245,10 @@ h1 {
     width: 300px;
     transform: translateX(0);
   }
-  .center {
-    margin: auto;
-    text-align: center;
-  }
+  // .center {
+  //   margin: auto;
+  //   text-align: center;
+  // }
   .decison {
     span {
       display: inline;
