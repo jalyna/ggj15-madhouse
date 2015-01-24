@@ -129,6 +129,7 @@ socket.on('game_end', function(){
 
 socket.on('debug', function(message) {
   console.log('DEBUG: ' + message);
+  $("#error").html(message);
 });
 
 var myimages = [];

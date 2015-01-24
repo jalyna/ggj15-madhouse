@@ -56,15 +56,15 @@ loadScene = (io, name, cb) ->
     token = Math.random().toString(36).substring(7)
     request {'cache-control': 'no-cache', url:"https://raw.githubusercontent.com/jalyna/ggj15-madhouse/master/game_data/#{name}.yml?token=#{token}"}, (err, res, body) ->
       if !error && res.statusCode == 200
-        scene_data = yaml.load(body)
+        scene_data = yaml.safeLoad(body)
         played_scenes.push(name)
         cb.call() if cb
       else
         endGame(io)
   catch error
-    console.log("ERROR: #{error}")
+    console.log("ERROR: #{error.message}")
     endGame(io)
-    io.emit 'debug', error
+    io.emit 'debug', error.message
 loadStep = (io, cb) ->
   if scene_data['steps']?
     step_data = scene_data['steps'][step]
