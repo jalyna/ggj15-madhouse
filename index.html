@@ -15,19 +15,25 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Madhouse</h1>
-    <div id="background">
-      x
-      x
-    </div>
-    <div id="text">
-    </div>
-    <div>
-      Time left: <span id="time_left">-</span>
-    </div>
-    <span id="user_counter"></span>
-    <button id="button">Start</button>
-    <ol id="options"></ol>
+    <article class="screen">
+      <h1>Multiple People at once flew over the cuckoo's nest</h1>
+      <button class="button button--start" id="button">START</button>
+    </article>
+    <article class="screen is-on">
+      <div class="bg-full" id="background"></div>
+      <div class="character" id="character"></div>
+      <div class="textbox textbox--text" id="text"></div>
+      <div class="decicion textbox">
+        <div class="decision-timeleft" id="time_left"></div>
+        <ul class="decision-list" id="options"></ul>
+      </div>
+      <div class="textbox textbox--chat">
+        <h3><span id="user_counter"></span> voices in your head</h3>
+      </div>
+    </article>
+    <article class="screen">
+      
+    </article>
 
     <script src="/bootstrap/js/transition.js"></script>
     <script>
