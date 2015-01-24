@@ -1,0 +1,31 @@
+steps:
+  -
+    background: "foo.png"
+    character: "bucketlady.png"
+    duration: 3
+    text: "The Moles are not sniches, but the raccoons are!"
+    text_effect:
+      effect: "rollIn"
+  -
+    background: "foo.png"
+    character: "bucketlady.png"
+    duration: 3
+    text: "But it seems that you know nothing, that's good!"
+    text_effect:
+      effect: "rollIn"
+  -
+    character: "bucketlady.png"
+    character_effect: "fadeIn"
+    text: "Keep it that way!"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "2"
+    label: "(leave)"
+  -
+    scene: "c"
+    label: "hidden"
+    hidden: true

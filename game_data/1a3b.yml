@@ -1,0 +1,20 @@
+steps:
+  -
+    character: "bucketlady.png"
+    character_effect: "fadeIn"
+    text: "No one can help me, no one is save, they will get you too!"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "a"
+    label: "Ich nehme A"
+  -
+    scene: "b"
+    label: "Lieber B"
+  -
+    scene: "c"
+    label: "hidden"
+    hidden: true

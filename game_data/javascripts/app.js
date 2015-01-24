@@ -99,6 +99,10 @@ socket.on('game_end', function(){
   console.log("GAME END");
 });
 
+socket.on('debug', function(message) {
+  console.log('DEBUG: ' + message);
+});
+
 var myimages = [];
 var mysounds = [];
 

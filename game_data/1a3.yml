@@ -1,0 +1,30 @@
+steps:
+  -
+    background: "foo.png"
+    character: "bucketlady.png"
+    duration: 10
+    text: "Its not important what they are, it's important that they are after me!"
+    text_effect:
+      effect: "rollIn"
+  -
+    character: "bucketlady.png"
+    character_effect: "fadeIn"
+    text: "I'm sure!"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "2"
+    label: "Ok... bye (leave)"
+  -
+    scene: "1a3b"
+    label: "Why are you so sure?"
+  -
+    scene: "1a3c"
+    label: "Can I help you?"
+  -
+    scene: "c"
+    label: "hidden"
+    hidden: true

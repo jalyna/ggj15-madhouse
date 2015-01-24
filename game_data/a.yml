@@ -1,6 +1,0 @@
-fork:
-  -
-    condition: b
-    scene: c
-  -
-    scene: b

@@ -43,20 +43,28 @@ getPreloadData = (cb) ->
     preload_images = _.filter files, (f) ->
       f != '.DS_Store'
     cb.call() if cb
-
 getPreloadSounds = (cb) ->
   fs.readdir "game_data/music/", (err, files) =>
     preload_sounds = _.filter files, (f) ->
       f != '.DS_Store'
     cb.call() if cb
-loadScene = (name, cb) ->
-  fs.readFile "game_data/#{name}.yml", "utf-8", (err, data) =>
-    scene_data = yaml.load(data)
-    played_scenes.push(name)
+loadScene = (io, name, cb) ->
+  try
+    fs.readFile "game_data/#{name}.yml", "utf-8", (err, data) =>
+      scene_data = yaml.load(data)
+      played_scenes.push(name)
+      cb.call() if cb
+  catch error
+    console.log("ERROR: #{error}")
+    endGame(io)
+    io.emit 'debug', error
+loadStep = (io, cb) ->
+  if scene_data['steps']?
+    step_data = scene_data['steps'][step]
     cb.call() if cb
-loadStep = (cb) ->
-  step_data = scene_data['steps'][step]
-  cb.call() if cb
+  else
+    endGame(io)
+
 loadDecision = (cb) ->
   decision_data = scene_data['decision']
   decision_data = _.reject(decision_data, 'hidden') unless decision_data == null
@@ -77,7 +85,7 @@ countDown = (io) ->
       step = -1
       io.emit 'set_decision', scene
       setTimeout (->
-        loadScene scene, ->
+        loadScene io, scene, ->
           nextStep(io)
       ), 1000
   else
@@ -105,7 +113,7 @@ endGame = (io) ->
     scene = 'start'
     step = -1
     step_data = {}
-    loadScene scene
+    loadScene io, scene
     io.emit 'render_step', step_data
   ), 3000
 
@@ -124,11 +132,11 @@ nextStep = (io) ->
     scene = calcNextScene(io, scene_data.fork)
     step = -1
     console.log "FORK", scene
-    loadScene scene, ->
+    loadScene io, scene, ->
       nextStep(io)
     return
 
-  loadStep ->
+  loadStep io, ->
     if step_data
       current_duration = step_data.duration || 1
       io.emit 'render_step', step_data
@@ -159,7 +167,7 @@ removeName = (id) ->
   delete names[id]
 
 
-loadScene scene
+loadScene null, scene
 getPreloadData()
 getPreloadSounds()
 fs.readFile "game_data/names.yml", "utf-8", (err, data) =>
