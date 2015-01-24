@@ -1,22 +1,25 @@
 steps:
   -
-    background: "foo.png"
-    character: "bucketlady.png"
+    background: "flur.png"
+    character: "max.png"
     duration: 3
     text: "The Moles are not sniches, but the raccoons are!"
+    character_name: "Max"
     text_effect:
       effect: "rollIn"
   -
-    background: "foo.png"
-    character: "bucketlady.png"
+    background: "flur.png"
+    character:  "max.png"
     duration: 3
     text: "But it seems that you know nothing, that's good!"
+    character_name: "Max"
     text_effect:
       effect: "rollIn"
   -
-    character: "bucketlady.png"
+    character: "max.png"
     character_effect: "fadeIn"
     text: "Keep it that way!"
+    character_name: "Max"
     duration: 4
     sound: "chosen.ogg"
     text_effect:
