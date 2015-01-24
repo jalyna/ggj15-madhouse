@@ -34,6 +34,7 @@ played_scenes    = []
 chat_messages    = []
 names            = {}
 name_list        = []
+stop             = false
 
 app.use lessMiddleware(__dirname + '/game_data')
 app.use express.static(__dirname + '/game_data')
@@ -52,7 +53,8 @@ getPreloadSounds = (cb) ->
     cb.call() if cb
 loadScene = (io, name, cb) ->
   try
-    request "https://raw.githubusercontent.com/jalyna/ggj15-madhouse/master/game_data/#{name}.yml", (err, res, body) ->
+    token = Math.random().toString(36).substring(7)
+    request {'cache-control': 'no-cache', url:"https://raw.githubusercontent.com/jalyna/ggj15-madhouse/master/game_data/#{name}.yml?token=#{token}"}, (err, res, body) ->
       if !error && res.statusCode == 200
         scene_data = yaml.load(body)
         played_scenes.push(name)
@@ -75,6 +77,7 @@ loadDecision = (cb) ->
   decision_data = _.reject(decision_data, 'hidden') unless decision_data == null
   cb.call() if cb
 countDown = (io) ->
+  return if stop
   if time_left <= 0
     console.log "RESULT", decision_result
     if decision_result == null
@@ -124,6 +127,7 @@ endGame = (io) ->
   ), 3000
 
 nextStep = (io) ->
+  return if stop
   return if in_decision
   if current_duration > 0
     setTimeout (->
@@ -213,6 +217,18 @@ io.on 'connection', (socket) ->
     failed_votes = 0
     played_scenes = []
     nextStep(io)
+
+  socket.on 'stop', ->
+    stop = true
+    time_left = 7
+    in_decision = false
+    io.emit 'stopped'
+
+  socket.on 'reload', ->
+    stop = false
+    step = -1
+    loadScene io, scene, ->
+      nextStep(io)
 
   socket.on 'message', (message) ->
     message = S(message).stripTags().s
