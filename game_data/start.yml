@@ -2,8 +2,10 @@ steps:
   -
     background: "foo.png"
     text: "Hi everyone"
+    duration: 3
   -
     text: "Nice to have you here"
+    duration: 4
 decision:
   -
     scene: "a"

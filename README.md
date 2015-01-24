@@ -9,6 +9,7 @@
 - [ ] Hidden Option
 - [ ] Mechanism: equal votes
 - [ ] Maximum players
-- [ ] Duration for steps
+- [x] Duration for steps
 - [ ] Responsive UI
 - [ ] Heroku Deployment
+- [ ] End game after 3 failed decisions

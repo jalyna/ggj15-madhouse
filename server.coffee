@@ -18,6 +18,7 @@ decision_result = null
 step          = -1
 time_left     = 10
 in_decision   = false
+current_duration = 0
 
 app.use express.static(__dirname + '/game_data')
 
@@ -59,11 +60,19 @@ getDecision = ->
       return k
 nextStep = (io) ->
   return if in_decision
+  if current_duration > 0
+    setTimeout (->
+      current_duration--
+      nextStep(io)
+    ), 1000
+    return
   console.log "NEXT"
   step++
   loadStep ->
     if step_data
+      current_duration = step_data.duration || 1
       io.emit 'render_step', step_data
+      nextStep(io)
     else
       console.log "DECISION!!"
       loadDecision ->
