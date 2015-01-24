@@ -5,10 +5,25 @@ $("#button").on("click", function(e) {
   socket.emit('start');
 });
 
-$(document).on('click', '#options li', function(e){
+$(document).on('click', 'button[data-option]', function(e){
   option = $(e.currentTarget).data('option');
-  console.log("UHU", option);
+  console.log("YOU CHOOSE", option);
   socket.emit('choose_option', option);
+});
+
+$(document).on('keypress', function(e){
+  e.preventDefault();
+
+  if(e.keyCode == 13 && $("#button").is(":visible")) {
+    $("#button").click();
+    return;
+  }
+
+  if($("#options").is(":hidden")) {
+    return;
+  }
+  opt = e.keyCode - 49
+  option = $("#options [data-option]:eq("+opt+")").click();
 });
 
 socket.on('user_counter', function(user_counter) {
@@ -31,11 +46,29 @@ socket.on('render_step', function(data) {
     if(data.background) {
       $("#background").css("background", "url(images/" + data.background + ")");
     }
+    if(data.character) {
+      $("#character").hide().css("background", "url(images/" + data.character + ")");
+      if(data.character_effect) {
+        $("#character")[data.character_effect]();
+      } else {
+        $("#character").show()
+      }
+    }
   }
 });
 
 socket.on('game_end', function(){
   console.log("GAME END");
+});
+
+var myimages = [];
+
+socket.on('preload_data', function(files) {
+  console.log(files);
+  for (i=0;i<files.length;i++){
+    myimages[i] = new Image();
+    myimages[i].src = "/images/" + files[i];
+  }
 });
 
 socket.on('max_players_reached', function() {
@@ -53,10 +86,10 @@ socket.on('set_decision', function(decision) {
 socket.on('render_decision', function(data) {
   if(data) {
     console.log(data);
-    $("#options").html('');
+    $("#options").html('<ol class="decision-list list-inline row"></ol>');
     for(var i = 0; i < data.length; i++) {
       opt = data[i]
-      $("#options").append('<li data-option="'+opt.scene+'">'+opt.label+'</li>');
+      $("#options ol").append('<li class="col-xs-6 col-sm-3"><button data-option="'+opt.scene+'" class="btn btn-default btn-block btn-lg"><span class="number">'+(i+1)+'</span> '+opt.label+'</button></li>');
     }
   }
 });

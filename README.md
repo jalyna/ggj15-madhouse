@@ -6,15 +6,16 @@
 
 - [x] One vote per user
 - [x] Only valid votes
-- [ ] Hidden Option
-- [ ] Mechanism: equal votes
+- [x] Hidden Option
+- [x] Mechanism: equal votes
 - [x] Maximum players
 - [x] Duration for steps
 - [ ] Responsive UI
 - [x] Heroku Deployment
 - [x] End game after 4 failed decisions
-- [ ] Preload assets
+- [x] Preload assets
 - [x] Send result to client
 - [x] Text effect
-- [ ] Image effect
-- [ ] Key controls
+- [x] Image effect
+- [x] Key controls
+- [ ] Chat

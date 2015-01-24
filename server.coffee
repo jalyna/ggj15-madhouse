@@ -25,12 +25,18 @@ in_decision      = false
 current_duration = 0
 already_voted    = []
 failed_votes     = 0
+preload_data     = []
 
 app.use lessMiddleware(__dirname + '/game_data')
 app.use express.static(__dirname + '/game_data')
 
 # LOAD SCENE
 
+getPreloadData = (cb) ->
+  fs.readdir "game_data/images/", (err, files) =>
+    preload_data = _.filter files, (f) ->
+      f != '.DS_Store'
+    cb.call() if cb
 loadScene = (name, cb) ->
   fs.readFile "game_data/#{name}.yml", "utf-8", (err, data) =>
     scene_data = yaml.load(data)
@@ -39,7 +45,7 @@ loadStep = (cb) ->
   step_data = scene_data['steps'][step]
   cb.call() if cb
 loadDecision = (cb) ->
-  decision_data = scene_data['decision']
+  decision_data = _.reject(scene_data['decision'], 'hidden')
   cb.call() if cb
 countDown = (io) ->
   if time_left <= 0
@@ -69,9 +75,16 @@ countDown = (io) ->
 getDecision = ->
   values = _.values(decision_result)
   best = _.max(values)
+  results = []
   for k, v of decision_result
     if v == best
-      return k
+      results.push k
+
+  hidden = _.filter(scene_data['decision'], 'hidden')
+  if results.length > 1 && hidden.length > 0
+    _.sample(_.map(hidden, 'scene'))
+  else
+    _.sample(results)
 endGame = (io) ->
   io.emit 'game_end'
   setTimeout (->
@@ -112,6 +125,7 @@ nextStep = (io) ->
 
 
 loadScene scene
+getPreloadData()
 
 # INDEX
 app.get '/', (req, res) ->
@@ -150,5 +164,6 @@ io.on 'connection', (socket) ->
   user_counter++
   io.emit 'user_counter', user_counter
   socket.emit 'render_step', step_data
+  socket.emit 'preload_data', preload_data
 
 http.listen port
