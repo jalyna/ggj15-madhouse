@@ -34,6 +34,7 @@ played_scenes    = []
 chat_messages    = []
 names            = {}
 name_list        = []
+stop             = false
 
 app.use lessMiddleware(__dirname + '/game_data')
 app.use express.static(__dirname + '/game_data')
@@ -124,6 +125,7 @@ endGame = (io) ->
   ), 3000
 
 nextStep = (io) ->
+  return if stop
   return if in_decision
   if current_duration > 0
     setTimeout (->
@@ -213,6 +215,18 @@ io.on 'connection', (socket) ->
     failed_votes = 0
     played_scenes = []
     nextStep(io)
+
+  socket.on 'stop', ->
+    stop = true
+    time_left = 7
+    in_decision = false
+    io.emit 'stopped'
+
+  socket.on 'reload', ->
+    stop = false
+    step = -1
+    loadScene io, scene, ->
+      nextStep(io)
 
   socket.on 'message', (message) ->
     message = S(message).stripTags().s

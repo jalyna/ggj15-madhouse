@@ -19,6 +19,20 @@ $("#button").on("click", function(e) {
   $('#background').addClass('is-on');
 });
 
+$("#stop").on("click", function(e) {
+  e.preventDefault();
+  socket.emit('stop');
+  $("#stop").hide();
+  $("#reload").show();
+});
+
+$("#reload").on("click", function(e) {
+  e.preventDefault();
+  socket.emit('reload');
+  $("#stop").show();
+  $("#reload").hide();
+});
+
 $("#chat-form").on("submit", function(e) {
   e.preventDefault();
   send_message.play();
