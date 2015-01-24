@@ -57,6 +57,8 @@ socket.on('user_counter', function(user_counter) {
 
 socket.on('add_message', function(msg){
   $("#messages").append('<p><strong>'+msg.author+':</strong> '+msg.message+'</p>');
+  elem = $("#messages")[0];
+  elem.scrollTop = elem.scrollHeight;
 });
 
 socket.on('update_time_left', function(time_left) {

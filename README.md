@@ -21,4 +21,4 @@
 - [x] Chat
 - [ ] Chat Security
 - [x] Forks
-- [ ] Chat Window Scroll to Bottom
+- [x] Chat Window Scroll to Bottom
