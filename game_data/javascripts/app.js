@@ -46,6 +46,14 @@ socket.on('render_step', function(data) {
     if(data.background) {
       $("#background").css("background", "url(images/" + data.background + ")");
     }
+    if(data.character) {
+      $("#character").hide().css("background", "url(images/" + data.character + ")");
+      if(data.character_effect) {
+        $("#character")[data.character_effect]();
+      } else {
+        $("#character").show()
+      }
+    }
   }
 });
 

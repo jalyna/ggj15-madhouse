@@ -16,6 +16,6 @@
 - [x] Preload assets
 - [x] Send result to client
 - [x] Text effect
-- [ ] Image effect
+- [x] Image effect
 - [x] Key controls
 - [ ] Chat

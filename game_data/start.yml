@@ -1,11 +1,14 @@
 steps:
   -
     background: "foo.png"
+    character: "foo.png"
     duration: 3
     text: "Hi everyone"
     text_effect:
       effect: "rollIn"
   -
+    character: "foo.png"
+    character_effect: "fadeIn"
     text: "Nice to have you here"
     duration: 4
     text_effect:
