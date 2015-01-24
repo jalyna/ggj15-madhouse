@@ -1,0 +1,17 @@
+steps:
+  -
+     background: "flur.jpg"
+     character: "bucketlady.png"
+     character_effect: "fadeIn"
+     text: "I knew it! But you won't get it. It is my Bucket."
+     duration: 4
+     sound: "chosen.ogg"
+     text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "1b1"
+    label: "Ok fine, I don't need the bucket anyway."
+  -
+    scene: "1b2a"
+    label: "But I need the bucket!"
