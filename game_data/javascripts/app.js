@@ -15,7 +15,7 @@ $(document).on('keypress', function(e){
   e.preventDefault();
 
   if(e.keyCode == 13 && $("#button").is(":visible")) {
-    $("#button").click()
+    $("#button").click();
     return;
   }
 
