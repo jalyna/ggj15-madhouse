@@ -27,7 +27,7 @@ $("#button").on("click", function(e) {
     if (vol > 0) {
       vol -= 0.05;
       if(vol <= 0.0) {
-        vol = 0;
+        vol = 0.01;
       }
       title.volume = vol;
     }
