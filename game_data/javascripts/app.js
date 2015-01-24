@@ -109,6 +109,10 @@ socket.on('game_end', function(){
   $('#notice').html('YOU LOST!');
 });
 
+socket.on('debug', function(message) {
+  console.log('DEBUG: ' + message);
+});
+
 var myimages = [];
 var mysounds = [];
 

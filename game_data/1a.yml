@@ -1,0 +1,33 @@
+steps:
+  -
+    background: "foo.png"
+    character: "bucketlady.png"
+    duration: 3
+    text: '"Are you one of the Lizard Human?"'
+    text_effect:
+      effect: "rollIn"
+  -
+    character: "bucketlady.png"
+    character_effect: "fadeIn"
+    text: "You turn around and see a very nervous looking man"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "1a1"
+    label: "Maybe?"
+  -
+    scene: "1a2"
+    label: "Of course not"
+  -
+    scene: "1a3"
+    label: "What are lizard humans?"
+  -
+    scene: "1a4"
+    label: "Yes?"
+  -
+    scene: "1a3"
+    label: "hidden"
+    hidden: true

@@ -1,0 +1,17 @@
+steps:
+  -
+    character: "bucketlady.png"
+    character_effect: "fadeIn"
+    text: "I won't tell a spy that!"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "2"
+    label: "(leave)"
+  -
+    scene: "c"
+    label: "hidden"
+    hidden: true

@@ -1,0 +1,18 @@
+steps:
+  -
+    character: "bucketlady.png"
+    character_effect: "fadeIn"
+    text: "That's exacly what a lizard human would say! "
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "2"
+    label: "(Leave)"
+
+  -
+    scene: "c"
+    label: "hidden"
+    hidden: true

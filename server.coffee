@@ -18,6 +18,7 @@ user_counter     = 0
 scene            = 'start'
 scene_data       = {}
 step_data        = {}
+merged_step_data = {}
 decision_data    = {}
 decision_result  = null
 step             = -1
@@ -43,20 +44,28 @@ getPreloadData = (cb) ->
     preload_images = _.filter files, (f) ->
       f != '.DS_Store'
     cb.call() if cb
-
 getPreloadSounds = (cb) ->
   fs.readdir "game_data/music/", (err, files) =>
     preload_sounds = _.filter files, (f) ->
       f != '.DS_Store'
     cb.call() if cb
-loadScene = (name, cb) ->
-  fs.readFile "game_data/#{name}.yml", "utf-8", (err, data) =>
-    scene_data = yaml.load(data)
-    played_scenes.push(name)
+loadScene = (io, name, cb) ->
+  try
+    fs.readFile "game_data/#{name}.yml", "utf-8", (err, data) =>
+      scene_data = yaml.load(data)
+      played_scenes.push(name)
+      cb.call() if cb
+  catch error
+    console.log("ERROR: #{error}")
+    endGame(io)
+    io.emit 'debug', error
+loadStep = (io, cb) ->
+  if scene_data['steps']?
+    step_data = scene_data['steps'][step]
     cb.call() if cb
-loadStep = (cb) ->
-  step_data = scene_data['steps'][step]
-  cb.call() if cb
+  else
+    endGame(io)
+
 loadDecision = (cb) ->
   decision_data = scene_data['decision']
   decision_data = _.reject(decision_data, 'hidden') unless decision_data == null
@@ -68,7 +77,7 @@ countDown = (io) ->
       if failed_votes == 3
         endGame(io)
         return
-      time_left = 11
+      time_left = 7
       countDown io
       failed_votes++
     else
@@ -77,7 +86,7 @@ countDown = (io) ->
       step = -1
       io.emit 'set_decision', scene
       setTimeout (->
-        loadScene scene, ->
+        loadScene io, scene, ->
           nextStep(io)
       ), 1000
   else
@@ -105,7 +114,8 @@ endGame = (io) ->
     scene = 'start'
     step = -1
     step_data = {}
-    loadScene scene
+    merged_step_data = {}
+    loadScene io, scene
     io.emit 'render_step', step_data
   ), 3000
 
@@ -124,13 +134,14 @@ nextStep = (io) ->
     scene = calcNextScene(io, scene_data.fork)
     step = -1
     console.log "FORK", scene
-    loadScene scene, ->
+    loadScene io, scene, ->
       nextStep(io)
     return
 
-  loadStep ->
+  loadStep io, ->
     if step_data
       current_duration = step_data.duration || 1
+      merged_step_data = _.merge(merged_step_data, step_data)
       io.emit 'render_step', step_data
       nextStep(io)
     else
@@ -139,7 +150,7 @@ nextStep = (io) ->
         if decision_data && decision_data.length > 0
           decision_result = null
           already_voted = []
-          time_left = 11
+          time_left = 7
           in_decision = true
           io.emit 'render_decision', decision_data
           countDown io
@@ -159,7 +170,7 @@ removeName = (id) ->
   delete names[id]
 
 
-loadScene scene
+loadScene null, scene
 getPreloadData()
 getPreloadSounds()
 fs.readFile "game_data/names.yml", "utf-8", (err, data) =>
@@ -211,7 +222,7 @@ io.on 'connection', (socket) ->
   user_counter++
   io.emit 'user_counter', user_counter
   socket.emit 'set_name', names[socket.id]
-  socket.emit 'render_step', step_data
+  socket.emit 'render_step', merged_step_data
   socket.emit 'preload_images', preload_images
   socket.emit 'preload_sounds', preload_sounds
   for msg in chat_messages

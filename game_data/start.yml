@@ -1,22 +1,20 @@
 steps:
   -
     background: "flur.jpg"
-    character: "max.png"
-    character_name: "Max"
-    duration: 3
-    text: "Hi everyone"
+    character: "bucketlady.png"
+    duration: 4
+    text: "Just a normal day in a psychiatry and you decided to break out, you now that you'll need the help of the other patients."
+    character_name: "Bucket Lady"
     text_effect:
       effect: "rollIn"
   -
     text: "Es war einmal"
     text_effect:
-      effect: "fadeInLeftBig"
-      shuffle: true
-      delayScale: 1.5
+      effect: "pulse"
   -
     character: "stephanie.png"
     character_effect: "fadeIn"
-    text: "Nice to have you here"
+    text: "So, what do we do?"
     duration: 4
     sound: "chosen.ogg"
     text_effect:
@@ -24,12 +22,18 @@ steps:
     character_name: "Stephanie"
 decision:
   -
-    scene: "a"
-    label: "Ich nehme A"
+    scene: "1a"
+    label: "Go to the hallway"
   -
-    scene: "b"
-    label: "Lieber B"
+    scene: "1b"
+    label: "Go to the bathroom"
   -
-    scene: "c"
+    scene: "1c"
+    label: "Go to the livingroom"
+  -
+    scene: "1d"
+    label: "Go to the cafeteria"
+  -
+    scene: "1e"
     label: "hidden"
     hidden: true
