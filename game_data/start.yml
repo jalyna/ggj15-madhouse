@@ -7,6 +7,12 @@ steps:
     text_effect:
       effect: "rollIn"
   -
+    text: "Es war einmal"
+    text_effect:
+      effect: "fadeInLeftBig"
+      shuffle: true
+      delayScale: 1.5
+  -
     character: "bucketlady.png"
     character_effect: "fadeIn"
     text: "Nice to have you here"

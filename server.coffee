@@ -27,6 +27,7 @@ already_voted    = []
 failed_votes     = 0
 preload_images   = []
 preload_sounds   = []
+played_scenes    = []
 
 app.use lessMiddleware(__dirname + '/game_data')
 app.use express.static(__dirname + '/game_data')
@@ -47,6 +48,7 @@ getPreloadSounds = (cb) ->
 loadScene = (name, cb) ->
   fs.readFile "game_data/#{name}.yml", "utf-8", (err, data) =>
     scene_data = yaml.load(data)
+    played_scenes.push(name)
     cb.call() if cb
 loadStep = (cb) ->
   step_data = scene_data['steps'][step]
@@ -113,6 +115,15 @@ nextStep = (io) ->
     return
   console.log "NEXT"
   step++
+
+  if scene_data.fork
+    scene = calcNextScene(io, scene_data.fork)
+    step = -1
+    console.log "FORK", scene
+    loadScene scene, ->
+      nextStep(io)
+    return
+
   loadStep ->
     if step_data
       current_duration = step_data.duration || 1
@@ -130,6 +141,12 @@ nextStep = (io) ->
           countDown io
         else
           endGame(io)
+
+calcNextScene = (io, fork) ->
+  for branch in fork
+    return branch.scene unless branch.condition
+    if _.contains(played_scenes, branch.condition)
+      return branch.scene
 
 
 loadScene scene
@@ -167,6 +184,7 @@ io.on 'connection', (socket) ->
   socket.on 'start', ->
     return unless step == -1
     failed_votes = 0
+    played_scenes = []
     nextStep(io)
 
   console.log "a user connected whoop whoop #{user_counter}"
