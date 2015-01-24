@@ -55,6 +55,7 @@ $(document).on('keypress', function(e){
 
 socket.on('user_counter', function(user_counter) {
   $("#user_counter").html(user_counter);
+  $("#init_user_counter").html(user_counter);
 });
 
 socket.on('add_message', function(msg){
@@ -102,6 +103,7 @@ socket.on('render_step', function(data) {
 
 socket.on('game_end', function(){
   console.log("GAME END");
+  $('#start').css('background-image', 'images/end.png');
   $('.screen').removeClass('is-on');
   $('#start').addClass('is-on');
   $('#notice').html('YOU LOST!');

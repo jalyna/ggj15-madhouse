@@ -3,11 +3,12 @@
   <head>
     <meta chartset="utf-8">
     <title>madhouse</title>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="/bootstrap/less/bootstrap.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="/bootstrap/less/bootstrap.css" /> -->
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -18,10 +19,10 @@
     <![endif]-->
   </head>
   <body>
-    <article class="screen is-on" id="start">
+    <article class="screen is-on" id="start" style="background-image: url(images/start.jpg)">
       <div class="center">
         <h1>Multiple people at once flew over the cuckoo's nest</h1>
-        <div id="notice" class="notice">Start to Start</div>
+        <div id="notice" class="notice"><span id="init_user_counter"></span> voices in your head</div>
         <button class="button button--start" id="button">START</button>
       </div>
     </article>
@@ -30,8 +31,8 @@
       <!-- <h1>Multiple People at once flew over the cuckoo's nest</h1> -->
       <div class="screen-index">
         <div class="character" id="character"></div>
-        <div class="textbox textbox--text" id="text"></div>
         <div class="character-name" id="character_name"></div>
+        <div class="textbox textbox--text" id="text"></div>
         <div class="decision textbox textbox--text">
           <div class="decision-timeleft" id="time_left"></div>
           <div class="decision-list" id="options"></div>
@@ -45,7 +46,7 @@
         <div class="messages" id="messages"></div>
         <form id="chat-form" class="chat-form">
           <input type="text" id="message">
-          <button type="submit">Send</button>
+          <button class="button" type="submit">Send</button>
         </form>
       </div>
     </article>

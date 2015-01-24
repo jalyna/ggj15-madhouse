@@ -1,8 +1,8 @@
 steps:
   -
     background: "flur.jpg"
-    character: "bucketlady.png"
-    character_name: "Bucket Lady"
+    character: "max.png"
+    character_name: "Max"
     duration: 3
     text: "Hi everyone"
     text_effect:

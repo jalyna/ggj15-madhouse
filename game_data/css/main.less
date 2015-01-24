@@ -1,5 +1,6 @@
 @black: #000;
 @gray: #666;
+@border-radius: 5px;
 
 @button-color: @gray;
 
@@ -11,7 +12,10 @@
 
 html,
 body {
+  font-family: 'Quicksand', sans-serif;
   font-size: 16px;
+  letter-spacing: -1px;
+  line-height: 1.45;
   overflow-x: hidden;
 }
 
@@ -21,27 +25,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: green;
   display: none;
 }
 .screen.is-on {
   display: block;
 }
-// .bg-full {
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   width: 100vw;
-//   height: 100vh;
-//   margin: auto;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position: center;
-//   background-color: green;
-//   z-index: -1;
-// }
 .screen-index {
   // margin: auto;
   // width: 30em;
@@ -84,6 +72,8 @@ body {
   margin-bottom: 2em;
   transform: translateX(95%);
   transition: ease 200ms transform;
+  background-color: rgba(0,0,0, 0.7);
+  color: #aaa;
   &.is-open {
     transform: translateX(0);
   }
@@ -102,17 +92,30 @@ body {
   .chat-form {
     height: 10%;
     position: relative;
-    input, button {
+    input, .button {
       position: absolute;
       bottom: 2em;
     }
     input {
       width: 75%;
       left: 0px;
+      border: none;
+      padding: 0.6em;
+      color: #666;
+      border-top-left-radius: @border-radius;
+      border-bottom-left-radius: @border-radius;
     }
-    button {
+    .button {
       width: 25%;
       right: 0px;
+      background-color: #ccc;
+      border-radius: 0;
+      border-top-right-radius: @border-radius;
+      border-bottom-right-radius: @border-radius;
+      &:hover,
+      &:active {
+        background-color: #666;
+      }
     }
   }
 }
@@ -180,13 +183,14 @@ body {
   .screen-index {
     -webkit-flex: 1;
             flex: 1;
+    align-self: flex-end;
   }
   .textbox--text {
     width: 90%;
   }
   .character {
-    max-width: 19em;
-    height: 22em;
+    max-width: 21em;
+    height: 25em;
   }
   .textbox--chat {
     position: static;
