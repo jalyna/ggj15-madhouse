@@ -55,8 +55,11 @@ countDown = (io) ->
       in_decision = false
       scene = getDecision()
       step = -1
-      loadScene scene, ->
-        nextStep(io)
+      io.emit 'set_decision', scene
+      setTimeout (->
+        loadScene scene, ->
+          nextStep(io)
+      ), 1000
   else
     time_left--
     io.emit 'update_time_left', time_left
