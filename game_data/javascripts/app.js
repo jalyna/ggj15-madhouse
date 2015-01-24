@@ -110,27 +110,31 @@ socket.on('update_time_left', function(time_left) {
 socket.on('render_step', function(data) {
   if(data) {
     console.log(data);
-    if(data.text) {
+    if(data.text !== undefined) {
       $("#text").html("<span>" + data.text + "</span>");
       if(data.text_effect) {
         $("#text > span").textillate({ in: data.text_effect });
       }
     }
-    if(data.background) {
+    if(data.background !== undefined) {
       $("#background").css("background-image", "url(images/" + data.background + ")");
     }
-    if(data.character) {
-      $("#character").hide().css("background-image", "url(images/" + data.character + ")");
+    if(data.character !== undefined) {
+      if(data.character == "") {
+        $("#character").hide().css("background-image", "none");
+      } else {
+        $("#character").hide().css("background-image", "url(images/" + data.character + ")");
+      }
       if(data.character_effect) {
         $("#character")[data.character_effect]();
       } else {
         $("#character").show()
       }
     }
-    if(data.character_name) {
+    if(data.character_name !== undefined) {
       $('#character_name').html(data.character_name);
     } 
-    if(data.sound) {
+    if(data.sound !== undefined) {
       sound = new Audio('/music/' + data.sound);
       sound.play();
     }
