@@ -10,6 +10,7 @@ lessMiddleware = require('less-middleware')
 
 # CONSTANTS
 MAX_PLAYERS = 20
+port = process.env.PORT || 8080
 
 # INIT
 user_counter     = 0
@@ -54,8 +55,11 @@ countDown = (io) ->
       in_decision = false
       scene = getDecision()
       step = -1
-      loadScene scene, ->
-        nextStep(io)
+      io.emit 'set_decision', scene
+      setTimeout (->
+        loadScene scene, ->
+          nextStep(io)
+      ), 1000
   else
     time_left--
     io.emit 'update_time_left', time_left
@@ -147,4 +151,4 @@ io.on 'connection', (socket) ->
   io.emit 'user_counter', user_counter
   socket.emit 'render_step', step_data
 
-http.listen 8080
+http.listen port

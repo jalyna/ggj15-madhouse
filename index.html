@@ -3,8 +3,9 @@
   <head>
     <meta chartset="utf-8">
     <title>madhouse</title>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/animate.css" />
     <link rel="stylesheet" type="text/css" href="/bootstrap/less/bootstrap.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -35,6 +36,9 @@
       
     </article>
 
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/javascripts/lettering.js"></script>
+    <script src="/javascripts/textillate.js"></script>
     <script src="/bootstrap/js/transition.js"></script>
     <script>
       var socket = io();
@@ -80,6 +84,10 @@
 
       socket.on('disconnect', function() {
         console.log("YOU WERE DISCONNECTED");
+      });
+
+      socket.on('set_decision', function(decision) {
+        console.log("DESICION: " + decision);
       });
 
       socket.on('render_decision', function(data) {
