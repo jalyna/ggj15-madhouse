@@ -52,7 +52,8 @@ loadStep = (cb) ->
   step_data = scene_data['steps'][step]
   cb.call() if cb
 loadDecision = (cb) ->
-  decision_data = _.reject(scene_data['decision'], 'hidden')
+  decision_data = scene_data['decision']
+  decision_data = _.reject(decision_data, 'hidden') unless decision_data == null
   cb.call() if cb
 countDown = (io) ->
   if time_left <= 0
@@ -120,7 +121,7 @@ nextStep = (io) ->
     else
       console.log "DECISION!!"
       loadDecision ->
-        if decision_data
+        if decision_data && decision_data.length > 0
           decision_result = null
           already_voted = []
           time_left = 11
