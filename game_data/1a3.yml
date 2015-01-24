@@ -1,15 +1,17 @@
 steps:
   -
-    background: "foo.png"
-    character: "bucketlady.png"
+    background: "flur.png"
+    character: "max.png"
     duration: 10
     text: "Its not important what they are, it's important that they are after me!"
+    character_name: "Max"
     text_effect:
       effect: "rollIn"
   -
-    character: "bucketlady.png"
+    character: "max.png"
     character_effect: "fadeIn"
     text: "I'm sure!"
+    character_name: "Max"
     duration: 4
     sound: "chosen.ogg"
     text_effect:
