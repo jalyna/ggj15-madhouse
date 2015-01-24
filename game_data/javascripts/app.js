@@ -24,10 +24,10 @@ $("#button").on("click", function(e) {
   function() {
     // Reduce volume by 0.05 as long as it is above 0
     // This works as long as you start with a multiple of 0.05!
-    if (vol > 0) {
+    if (vol > 0.0) {
       vol -= 0.05;
       if(vol <= 0.0) {
-        vol = 0.01;
+        vol = 0.0;
       }
       title.volume = vol;
     }
