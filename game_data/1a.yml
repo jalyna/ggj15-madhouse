@@ -5,7 +5,7 @@ steps:
     duration: 3
     text: '"Are you one of the Lizard Human?"'
     text_effect:
-    effect: "rollIn"
+      effect: "rollIn"
     delayScale: 0.5
   -
     character: "max.png"
@@ -14,7 +14,7 @@ steps:
     duration: 4
     sound: "chosen.ogg"
     text_effect:
-    effect: "flipInY"
+      effect: "flipInY"
 decision:
   -
     scene: "1a1"
