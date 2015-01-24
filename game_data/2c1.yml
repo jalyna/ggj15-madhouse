@@ -1,0 +1,24 @@
+steps:
+  -
+    background: "bathroom.jpg"
+    character: ""
+    duration: 4
+    text: "Weren't you listen? Gosh, well know I have to find a candidate who were actually listen!"
+    character_name: "Tabea"
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "rollIn"
+  -
+    character: ""
+    character_effect: "fadeIn"
+    text: "She turns around and leaves."
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "flipInY"
+    character_name: ""
+decision:
+  -
+    scene: "1"
+    label: "(Leave)"
+  
