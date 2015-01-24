@@ -17,3 +17,4 @@
 - [x] Send result to client
 - [x] Text effect
 - [ ] Image effect
+- [ ] Key controls
