@@ -11,6 +11,7 @@ steps:
     character_effect: "fadeIn"
     text: "Nice to have you here"
     duration: 4
+    sound: "chosen.ogg"
     text_effect:
       effect: "flipInY"
 decision:

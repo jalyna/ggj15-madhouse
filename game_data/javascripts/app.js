@@ -67,6 +67,10 @@ socket.on('render_step', function(data) {
         $("#character").show()
       }
     }
+    if(data.sound) {
+      sound = new Audio('/music/' + data.sound);
+      sound.play();
+    }
   }
 });
 
