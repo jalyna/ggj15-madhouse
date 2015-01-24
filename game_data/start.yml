@@ -1,11 +1,15 @@
 steps:
   -
     background: "foo.png"
-    text: "Hi everyone"
     duration: 3
+    text: "Hi everyone"
+    text_effect:
+      effect: "rollIn"
   -
     text: "Nice to have you here"
     duration: 4
+    text_effect:
+      effect: "flipInY"
 decision:
   -
     scene: "a"
