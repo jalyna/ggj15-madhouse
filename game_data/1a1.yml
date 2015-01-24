@@ -11,7 +11,7 @@ steps:
     character: "max.png"
     character_effect: "fadeIn"
     text: "Maybe you are Mole Human!"
-    character_name: "max"
+    character_name: "Max"
     duration: 4
     sound: "chosen.ogg"
     text_effect:
