@@ -1,6 +1,6 @@
 steps:
   -
-    background: "flur.jpg"
+    background: "bathroom.jpg"
     character: "bucketlady.png"
     character_effect: "fadeIn"
     text: "It's my Bucket."
