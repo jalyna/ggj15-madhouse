@@ -10,6 +10,7 @@ lessMiddleware = require('less-middleware')
 
 # CONSTANTS
 MAX_PLAYERS = 20
+port = process.env.PORT || 8080
 
 # INIT
 user_counter     = 0
@@ -147,4 +148,4 @@ io.on 'connection', (socket) ->
   io.emit 'user_counter', user_counter
   socket.emit 'render_step', step_data
 
-http.listen 8080
+http.listen port
