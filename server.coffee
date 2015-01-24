@@ -8,19 +8,22 @@ app     = express()
 http    = require('http').Server(app)
 io      = require('socket.io')(http)
 
+# CONSTANTS
+MAX_PLAYERS = 20
+
 # INIT
-user_counter  = 0
-scene         = 'start'
-scene_data    = {}
-step_data     = {}
-decision_data = {}
-decision_result = null
-step          = -1
-time_left     = 10
-in_decision   = false
+user_counter     = 0
+scene            = 'start'
+scene_data       = {}
+step_data        = {}
+decision_data    = {}
+decision_result  = null
+step             = -1
+time_left        = 10
+in_decision      = false
 current_duration = 0
-already_voted = []
-failed_votes = 0
+already_voted    = []
+failed_votes     = 0
 
 app.use express.static(__dirname + '/game_data')
 
@@ -111,6 +114,12 @@ app.get '/', (req, res) ->
 
 # SOCKET
 io.on 'connection', (socket) ->
+  # TOO MANY PLAYERS
+  if user_counter >= MAX_PLAYERS
+    socket.emit 'max_players_reached'
+    socket.disconnect()
+    return
+
   socket.on 'disconnect', ->
     user_counter--
     io.emit 'user_counter', user_counter

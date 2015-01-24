@@ -8,7 +8,7 @@
 - [x] Only valid votes
 - [ ] Hidden Option
 - [ ] Mechanism: equal votes
-- [ ] Maximum players
+- [x] Maximum players
 - [x] Duration for steps
 - [ ] Responsive UI
 - [ ] Heroku Deployment
