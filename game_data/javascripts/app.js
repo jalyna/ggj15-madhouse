@@ -1,5 +1,7 @@
 var socket = io();
 var tick = new Audio('/music/timetick.ogg');
+var choose = new Audio('/music/choose.ogg');
+var chosen = new Audio('/music/chosen.ogg');
 
 $("#button").on("click", function(e) {
   e.preventDefault();
@@ -9,6 +11,7 @@ $("#button").on("click", function(e) {
 $(document).on('click', 'button[data-option]', function(e){
   option = $(e.currentTarget).data('option');
   console.log("YOU CHOOSE", option);
+  choose.play()
   socket.emit('choose_option', option);
 });
 
@@ -94,6 +97,7 @@ socket.on('disconnect', function() {
 
 socket.on('set_decision', function(decision) {
   console.log("DESICION: " + decision);
+  chosen.play();
 });
 
 socket.on('render_decision', function(data) {
