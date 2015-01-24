@@ -2,6 +2,8 @@
 
 [ggj15-madhouse.herokuapp.com](http://ggj15-madhouse.herokuapp.com/)
 
+!(https://raw.githubusercontent.com/jalyna/ggj15-madhouse/master/game_data/images/logo.png)
+
 ## Getting Started
 
 You have to install npm and then:
