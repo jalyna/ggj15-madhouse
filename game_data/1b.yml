@@ -1,12 +1,12 @@
 steps:
    -
-       background: "flur.jpg"
-       character: "bucketlady.png"
-       character_effect: "fadeIn"
-       text: "Do you want my Bucket?"
-       duration: 4
-       sound: "chosen.ogg"
-       text_effect:
+      background: "flur.jpg"
+      character: "bucketlady.png"
+      character_effect: "fadeIn"
+      text: "Do you want my Bucket?"
+      duration: 4
+      sound: "chosen.ogg"
+      text_effect:
         effect: "flipInY"
 decision:
   -
