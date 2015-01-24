@@ -117,14 +117,13 @@ getDecision = ->
     _.sample(results)
 endGame = (io) ->
   io.emit 'game_end'
-  setTimeout (->
-    scene = 'start'
-    step = -1
-    step_data = {}
-    merged_step_data = {}
-    loadScene io, scene
-    io.emit 'render_step', step_data
-  ), 3000
+  scene = 'start'
+  step = -1
+  step_data = {}
+  merged_step_data = {}
+  in_decision = false
+  current_duraction = 0
+  loadScene io, scene
 
 nextStep = (io) ->
   return if stop

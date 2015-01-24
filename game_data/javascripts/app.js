@@ -152,6 +152,8 @@ socket.on('game_end', function(){
   $('.screen').removeClass('is-on');
   $('#start').addClass('is-on');
   $('#notice').html('YOU LOST!');
+  $('.decision').removeClass('is-on');
+  $('.textbox--text:not(.decision)').removeClass('is-off');
 });
 
 socket.on('debug', function(message) {
