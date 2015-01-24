@@ -3,6 +3,7 @@ var tick = new Audio('/music/timetick.ogg');
 var choose = new Audio('/music/choose.ogg');
 var chosen = new Audio('/music/chosen.ogg');
 var send_message = new Audio('/music/send_message.wav');
+var title = new Audio('/music/title.ogg');
 
 $("#message").focus();
 
@@ -12,9 +13,11 @@ $('.textbox--chat').on('click', function() {
   }
 });
 
+title.play();
 $("#button").on("click", function(e) {
   e.preventDefault();
   socket.emit('start');
+  title.pause();
   $('.screen').removeClass('is-on');
   $('#background').addClass('is-on');
 });
@@ -117,6 +120,7 @@ socket.on('render_step', function(data) {
 
 socket.on('game_end', function(){
   console.log("GAME END");
+  title.play();
   $('#start').css('background-image', 'images/end.png');
   $('.screen').removeClass('is-on');
   $('#start').addClass('is-on');
