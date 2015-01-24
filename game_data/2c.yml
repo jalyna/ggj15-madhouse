@@ -1,0 +1,28 @@
+steps:
+  -
+    background: "flur.jpg"
+    character: ""
+    duration: 4
+    text: "We have a new candidate"
+    character_name: "Tabea"
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "rollIn"
+  -
+    character: ""
+    character_effect: "fadeIn"
+    text: "What do you think is the answer to this question? A, B ooor C? Chose wisely."
+    character_name: "Tabea"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "flipInY"
+    character_name: ""
+decision:
+  -
+    scene: "2c1"
+    label: "C!"
+  -
+    scene: "2c2"
+    label: "What Question?"
+  
