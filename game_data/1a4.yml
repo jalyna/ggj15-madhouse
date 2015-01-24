@@ -1,6 +1,6 @@
 steps:
   -
-    background: "flur.jpg"
+     background: "flur.jpg"
      character: "max.png"
      character_effect: "fadeIn"
      text: "YOU ARE ONE OF THEM!!"
