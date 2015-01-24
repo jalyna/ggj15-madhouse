@@ -25,7 +25,8 @@ in_decision      = false
 current_duration = 0
 already_voted    = []
 failed_votes     = 0
-preload_data     = []
+preload_images   = []
+preload_sounds   = []
 
 app.use lessMiddleware(__dirname + '/game_data')
 app.use express.static(__dirname + '/game_data')
@@ -34,7 +35,13 @@ app.use express.static(__dirname + '/game_data')
 
 getPreloadData = (cb) ->
   fs.readdir "game_data/images/", (err, files) =>
-    preload_data = _.filter files, (f) ->
+    preload_images = _.filter files, (f) ->
+      f != '.DS_Store'
+    cb.call() if cb
+
+getPreloadSounds = (cb) ->
+  fs.readdir "game_data/music/", (err, files) =>
+    preload_sounds = _.filter files, (f) ->
       f != '.DS_Store'
     cb.call() if cb
 loadScene = (name, cb) ->
@@ -126,6 +133,7 @@ nextStep = (io) ->
 
 loadScene scene
 getPreloadData()
+getPreloadSounds()
 
 # INDEX
 app.get '/', (req, res) ->
@@ -164,6 +172,7 @@ io.on 'connection', (socket) ->
   user_counter++
   io.emit 'user_counter', user_counter
   socket.emit 'render_step', step_data
-  socket.emit 'preload_data', preload_data
+  socket.emit 'preload_images', preload_images
+  socket.emit 'preload_sounds', preload_sounds
 
 http.listen port

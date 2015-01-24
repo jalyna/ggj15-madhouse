@@ -1,4 +1,5 @@
 var socket = io();
+var tick = new Audio('/music/timetick.ogg');
 
 $('.textbox--chat').on('click', function() {
   console.log('sdifs');
@@ -38,6 +39,9 @@ socket.on('user_counter', function(user_counter) {
 });
 
 socket.on('update_time_left', function(time_left) {
+  if(time_left <= 3) {
+    tick.play();
+  }
   $("#time_left").html(time_left);
 });
 
@@ -69,12 +73,21 @@ socket.on('game_end', function(){
 });
 
 var myimages = [];
+var mysounds = [];
 
-socket.on('preload_data', function(files) {
+socket.on('preload_images', function(files) {
   console.log(files);
   for (i=0;i<files.length;i++){
     myimages[i] = new Image();
     myimages[i].src = "/images/" + files[i];
+  }
+});
+
+socket.on('preload_sounds', function(files) {
+  console.log(files);
+  for (i=0;i<files.length;i++){
+    mysounds[i] = new Audio();
+    mysounds[i].src = "/music/" + files[i];
   }
 });
 
