@@ -6,6 +6,7 @@ steps:
     text: '"Are you one of the Lizard Human?"'
     text_effect:
       effect: "rollIn"
+      delayScale: 0.5
   -
     character: "max.png"
     character_effect: "fadeIn"
