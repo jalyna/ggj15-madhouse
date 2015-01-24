@@ -3,7 +3,7 @@ steps:
     background: "flur.jpg"
     character: "bucketlady.png"
     duration: 4
-    text: "LULUFULU Just a normal day in a psychiatry and you decided to break out, you now that you'll need the help of the other patients."
+    text: "Just a normal day in a psychiatry and you decided to break out, you now that you'll need the help of the other patients."
     character_name: "Bucket Lady"
     sound: "chosen.ogg"
     text_effect:
