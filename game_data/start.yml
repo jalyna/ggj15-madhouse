@@ -13,6 +13,7 @@ steps:
     duration: 4
     text_effect:
       effect: "flipInY"
+    character_name: "Bucket Lady"
 decision:
   -
     scene: "a"
