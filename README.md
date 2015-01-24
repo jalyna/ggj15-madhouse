@@ -19,6 +19,6 @@
 - [x] Image effect
 - [x] Key controls
 - [x] Chat
-- [ ] Chat Security
+- [x] Chat Security
 - [x] Forks
 - [x] Chat Window Scroll to Bottom

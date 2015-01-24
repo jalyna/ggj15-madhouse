@@ -7,6 +7,7 @@ app            = express()
 http           = require('http').Server(app)
 io             = require('socket.io')(http)
 lessMiddleware = require('less-middleware')
+S              = require('string')
 
 # CONSTANTS
 MAX_PLAYERS = 20
@@ -199,6 +200,7 @@ io.on 'connection', (socket) ->
     nextStep(io)
 
   socket.on 'message', (message) ->
+    message = S(message).stripTags().s
     msg = { message: message, author: names[socket.id] }
     chat_messages.push(msg)
     chat_messages.unshift() if chat_messages.length >= 20
