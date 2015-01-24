@@ -1,15 +1,17 @@
 steps:
   -
-    background: "foo.png"
-    character: "bucketlady.png"
+    background: "flur.png"
+    character: "max.png"
     duration: 3
     text: "You don't know if you're a lizard human?"
+    character_name: "Max"
     text_effect:
       effect: "rollIn"
   -
-    character: "bucketlady.png"
+    character: "max.png"
     character_effect: "fadeIn"
     text: "Maybe you are Mole Human!"
+    character_name: "max"
     duration: 4
     sound: "chosen.ogg"
     text_effect:
