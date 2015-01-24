@@ -8,7 +8,7 @@ steps:
     text_effect:
       effect: "rollIn"
   -
-    text: "Es war einmal XXXXX"
+    text: "FOOOOFOOOO Es war einmal XXXXX"
     duration: 2
     text_effect:
       effect: "flipInY"
