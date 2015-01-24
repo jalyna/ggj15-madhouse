@@ -18,6 +18,7 @@ user_counter     = 0
 scene            = 'start'
 scene_data       = {}
 step_data        = {}
+merged_step_data = {}
 decision_data    = {}
 decision_result  = null
 step             = -1
@@ -113,6 +114,7 @@ endGame = (io) ->
     scene = 'start'
     step = -1
     step_data = {}
+    merged_step_data = {}
     loadScene io, scene
     io.emit 'render_step', step_data
   ), 3000
@@ -139,6 +141,7 @@ nextStep = (io) ->
   loadStep io, ->
     if step_data
       current_duration = step_data.duration || 1
+      merged_step_data = _.merge(merged_step_data, step_data)
       io.emit 'render_step', step_data
       nextStep(io)
     else
@@ -219,7 +222,7 @@ io.on 'connection', (socket) ->
   user_counter++
   io.emit 'user_counter', user_counter
   socket.emit 'set_name', names[socket.id]
-  socket.emit 'render_step', step_data
+  socket.emit 'render_step', merged_step_data
   socket.emit 'preload_images', preload_images
   socket.emit 'preload_sounds', preload_sounds
   for msg in chat_messages
