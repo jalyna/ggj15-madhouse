@@ -25,4 +25,6 @@ decision:
   -
     scene: "2c2"
     label: "What Question?"
-  
+  -
+    scene: "2c3"
+    label: "A!"
