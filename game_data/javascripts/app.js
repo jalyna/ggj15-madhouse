@@ -220,7 +220,6 @@ socket.on('set_decision', function(decision, result) {
     $el.append(' <span class="result">'+number+'</span>');
   });
   setTimeout(function() {
-    console.log("AAAA");
     $("button[data-option="+decision+"]").removeClass("chosen-decision");
     $('.decision').removeClass('is-on');
     $('.textbox--text:not(.decision)').removeClass('is-off');

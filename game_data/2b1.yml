@@ -1,0 +1,23 @@
+steps:
+  -
+    background: "cafeteria.jpg"
+    character: "dave.png"
+    character_effect: "fadeIn"
+    text: "From everywhere! And it's my stuff!"
+    character_name: "Dave"
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+  -
+    background: "cafeteria.jpg"
+    character: "dave.png"
+    character_effect: "fadeIn"
+    text: "Get your own stuff!"
+    character_name: "Dave"
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "3"
+    label: "Fine (Leave)"

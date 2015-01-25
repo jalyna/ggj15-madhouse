@@ -3,6 +3,7 @@ steps:
     background: "bathroom.jpg"
     character: "bucketlady.png"
     character_effect: "fadeIn"
+    sound: "alarm.ogg"
     text: "I knew it! But you won't get it. It is my Bucket."
     duration: 4
     text_effect:
