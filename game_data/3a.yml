@@ -2,7 +2,7 @@ steps:
   -
     background: "flur.jpg"
     character: "bert.png"
-    sound: "evil.flac"
+    sound: "evil.ogg"
     character_effect: "fadeIn"
     text: "Patient! Go back to your room!"
     character_name: "Bert"
