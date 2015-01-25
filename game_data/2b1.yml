@@ -9,9 +9,6 @@ steps:
     text_effect:
       effect: "flipInY"
   -
-    background: "cafeteria.jpg"
-    character: "dave.png"
-    character_effect: "fadeIn"
     text: "Get your own stuff!"
     character_name: "Dave"
     duration: 4
