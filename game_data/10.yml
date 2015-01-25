@@ -1,0 +1,15 @@
+steps:
+  -
+    background: "outside.jpg"
+    character: ""
+    duration: 2
+    text: " "
+    character_name: ""
+    sound: "birds.ogg"
+  -
+    text: "You finally escaped."
+    duration: 20
+decision:
+  -
+    scene: "start"
+    label: "Go in again"
