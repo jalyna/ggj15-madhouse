@@ -1,0 +1,15 @@
+steps:
+  -
+    background: "flur.jpg"
+    character: "max.png"
+    character_effect: "fadeIn"
+    text: "Because they are HERE!"
+    character_name: "Max"
+    duration: 4
+    sound: "chosen.ogg"
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "2"
+    label: "(leave)"
