@@ -1,0 +1,29 @@
+steps:
+  -
+   background: "flur.jpg"
+   character: ""
+   duration: 4
+   text: "Yes I played in a lot of movies."
+   character_name: "Nicolas Cage"
+   text_effect:
+      effect: "rollIn"
+  -
+   background: "flur.jpg"
+   character: ""
+   duration: 4
+   text: "But it seems that you are not interested in talking to me."
+   character_name: "Nicolas Cage"
+   text_effect:
+      effect: "rollIn"
+  -
+    character: ""
+    character_effect: "fadeIn"
+    text: "He turns around ans leaves."
+    character_name: ""
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "3"
+    label: "(leave)"
