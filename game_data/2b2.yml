@@ -3,11 +3,14 @@ steps:
     background: "cafeteria.jpg"
     character: "dave.png"
     character_effect: "fadeIn"
-    text: "Well that's my fork. If you would ask for a spoon I would give it to you."
+    text: "Well that's my fork."
     character_name: "Dave"
-    duration: 4
+    duration: 3
     text_effect:
       effect: "flipInY"
+  -
+    text: "If you would ask for a spoon I would give it to you."
+    duration: 3
 decision:
   -
     scene: "3"
