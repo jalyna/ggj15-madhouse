@@ -1,0 +1,19 @@
+steps:
+  -
+    background: "cafeteria.jpg"
+    character: "stephanie.png"
+    duration: 3
+    text: "Hm ok."
+    character_name: "Stephanie"
+  -
+    text: "Here you have it"
+    duration: 2
+  -
+    character_name: ""
+    character: ""
+    duration: 4
+    text: "You put the knife in your pocket."
+decision:
+  -
+    scene: "10"
+    label: "Open the entrance door"

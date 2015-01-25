@@ -1,0 +1,20 @@
+steps:
+  -
+    background: "flur.jpg"
+    character: ""
+    duration: 3
+    text: 'You ask: "Do you know how to escape?"'
+  -
+    character: "max.png"
+    character_name: "Max"
+    text: "Of course... follow me."
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "10"
+    label: "Follow"
+  -
+    scene: "1a3"
+    label: "What are lizard humans?"

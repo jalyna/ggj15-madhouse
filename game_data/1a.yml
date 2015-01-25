@@ -28,6 +28,6 @@ decision:
     scene: "1a4"
     label: "Yes?"
   -
-    scene: "1a3"
+    scene: "10a"
     label: "hidden"
     hidden: true
