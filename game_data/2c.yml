@@ -4,6 +4,7 @@ steps:
     character: ""
     duration: 4
     text: "We have a new candidate"
+    character: "tabea.png"
     character_name: "Tabea"
     text_effect:
       effect: "rollIn"
@@ -26,3 +27,7 @@ decision:
   -
     scene: "2c3"
     label: "A!"
+  -
+    scene: "10b"
+    label: "hidden"
+    hidden: true

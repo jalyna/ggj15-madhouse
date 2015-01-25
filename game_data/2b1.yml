@@ -9,15 +9,15 @@ steps:
     text_effect:
       effect: "flipInY"
   -
-    background: "cafeteria.jpg"
-    character: "dave.png"
-    character_effect: "fadeIn"
     text: "Get your own stuff!"
     character_name: "Dave"
-    duration: 4
+    duration: 2
     text_effect:
       effect: "flipInY"
 decision:
   -
     scene: "3"
     label: "Fine (Leave)"
+  -
+    scene: "2b2"
+    label: "I need that fork!"
