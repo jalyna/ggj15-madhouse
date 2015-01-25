@@ -1,0 +1,17 @@
+steps:
+  -
+    background: "cafeteria.jpg"
+    character: "dave.png"
+    character_effect: "fadeIn"
+    text: "Well that's my fork. If you would ask for a spoon I would give it to you."
+    character_name: ""
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "2b2a"
+    label: "I don't need a spoon! (leave)"
+  -
+    scene: "2b2b"
+    label: "Ok, Can you give me a spoon?"
