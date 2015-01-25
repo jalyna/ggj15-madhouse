@@ -9,6 +9,7 @@ steps:
   -
     text: "......"
     duration: 2
+decision:
   -
     scene: "4"
     label: "Run away!"
