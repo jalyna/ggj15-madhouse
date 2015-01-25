@@ -10,8 +10,8 @@ steps:
       effect: "flipInY"
 decision:
   -
-    scene: "2b2a"
+    scene: "3"
     label: "I don't need a spoon! (leave)"
   -
-    scene: "2b2b"
+    scene: "2b2ba"
     label: "Ok, Can you give me a spoon?"
