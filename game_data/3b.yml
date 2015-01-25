@@ -26,7 +26,7 @@ steps:
 
 decision:
   -
-    scene: "4"
+    scene: "3b1"
     label: "Stop you from what?"
   -
     scene: "4"
