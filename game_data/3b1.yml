@@ -13,3 +13,6 @@ decision:
   -
     scene: "4"
     label: "Run away!"
+  -
+    scene: "3b2"
+    label: "Could you give me that knife?"

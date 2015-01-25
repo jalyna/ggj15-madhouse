@@ -8,8 +8,12 @@ steps:
     sound: "bird1.ogg"
   -
     text: "You finally escaped."
-    duration: 20
+    duration: 3
     sound: "bird2.ogg"
+  -
+    text: "What dou you do now?"
+    duration: 8
+    sound: "title.ogg"
 decision:
   -
     scene: "start"
