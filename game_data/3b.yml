@@ -11,14 +11,23 @@ steps:
     character: "stephanie.png"
     duration: 5
     text: "...... you ....."
+  -
+    text: "..."
+    duration: 2
+  -
+    text: "..."
+    duration: 2
+  -
+    duration: 2
+    text: "CAN NOT STOP ME!"
+  -
+    text: "..."
+    duration: 3
 
 decision:
   -
-    scene: "3a"
-    label: "Go to the hallway"
+    scene: "4"
+    label: "Stop you from what?"
   -
-    scene: "1c"
-    label: "Go to the bathroom"
-  -
-    scene: "3b"
-    label: "Go to the cafeteria"
+    scene: "4"
+    label: "Run away"
