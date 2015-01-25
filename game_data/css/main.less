@@ -252,6 +252,10 @@ h1 {
   // display: block !important;
   animation: fadein 1 1s;
 }
+.fadeIn {
+  // display: block !important;
+  animation: fadeup 1 1s;
+}
 
 @keyframes fadein {
   0% {
@@ -260,6 +264,57 @@ h1 {
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadein {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeup {
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeup {
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeup {
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
     opacity: 1;
   }
 }

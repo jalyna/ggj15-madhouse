@@ -9,6 +9,7 @@ steps:
   -
     character_name: "Stephanie"
     character: "stephanie.png"
+    character_effect: "fadeUp"
     duration: 5
     text: "...... you ....."
   -
