@@ -12,6 +12,7 @@ steps:
   -
     duration: 3
     text: "But I can assure you, I am Nicolas Cage."
+    character_name: "Schmicolas"
 decision:
   -
     scene: "3"
