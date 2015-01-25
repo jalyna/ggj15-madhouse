@@ -1,0 +1,24 @@
+steps:
+  -
+    background: "cafeteria.jpg"
+    character: ""
+    duration: 3
+    text: "...."
+    sound: "doomed.ogg"
+    character_name: ""
+  -
+    character_name: "Stephanie"
+    character: "stephanie.png"
+    duration: 5
+    text: "...... you ....."
+
+decision:
+  -
+    scene: "3a"
+    label: "Go to the hallway"
+  -
+    scene: "1c"
+    label: "Go to the bathroom"
+  -
+    scene: "3b"
+    label: "Go to the cafeteria"
