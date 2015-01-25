@@ -130,9 +130,10 @@ socket.on('render_step', function(data) {
         $("#character").hide().css("background-image", "url(images/" + data.character + ")");
       }
       if(data.character_effect) {
-        $("#character")[data.character_effect]();
+        $('#character').addClass(data.character_effect);
+        // $("#character")[data.character_effect]();
       } else {
-        $("#character").show()
+        $("#character").show();
       }
     }
     if(data.character_name !== undefined) {
