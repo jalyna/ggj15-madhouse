@@ -1,6 +1,6 @@
 steps:
   -
-    background: "flur.png"
+    background: "flur.jpg"
     character: "max.png"
     duration: 3
     text: "You don't know if you're a lizard human?"
@@ -26,7 +26,3 @@ decision:
   -
     scene: "1a4"
     label: "No, but I'm part of the raccoon-people."
-  -
-    scene: "c"
-    label: "hidden"
-    hidden: true
