@@ -11,7 +11,7 @@ steps:
   -
     character: ""
     character_effect: "fadeIn"
-    text: "So, what do we do?"
+    text: "So, what do we do now?"
     duration: 4
     text_effect:
       effect: "flipInY"
