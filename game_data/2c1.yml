@@ -3,14 +3,14 @@ steps:
     background: "bathroom.jpg"
     character: ""
     duration: 4
-    text: "Weren't you listen? Gosh, well know I have to find a candidate who were actually listen!"
+    text: "Cooorect! Congratulations!Here is your price."
     character_name: "Tabea"
     text_effect:
       effect: "rollIn"
   -
     character: ""
     character_effect: "fadeIn"
-    text: "She turns around and leaves."
+    text: "She gives you a toliet paper roll and leaves."
     duration: 4
     text_effect:
       effect: "flipInY"
