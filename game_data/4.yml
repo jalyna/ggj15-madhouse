@@ -5,7 +5,6 @@ steps:
    duration: 4
    text: "You try to find another person."
    character_name: ""
-   sound: "chosen.ogg"
    text_effect:
       effect: "rollIn"
   -
