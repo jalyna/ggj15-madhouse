@@ -1,0 +1,25 @@
+steps:
+  -
+    background: "bathroom.jpg"
+    character: ""
+    duration: 4
+    text: "I remember you. You are one of my greatest idols."
+    character_name: "You"
+  -
+    text: "I really fall in love with you."
+    duration: 3
+  -
+    character_name: "Tabea"
+    character: "tabea.png"
+    text: "..."
+    duarion: 2
+  -
+    text: "I share the same feelings".
+    duration: 3
+  -
+    text: "Maybe we can play a dating sim together?"
+    duration: 4
+decision:
+  -
+    scene: "10"
+    label: "Go home and play dating sim"
