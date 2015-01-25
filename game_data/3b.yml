@@ -1,0 +1,33 @@
+steps:
+  -
+    background: "cafeteria.jpg"
+    character: ""
+    duration: 3
+    text: "...."
+    sound: "doomed.ogg"
+    character_name: ""
+  -
+    character_name: "Stephanie"
+    character: "stephanie.png"
+    duration: 5
+    text: "...... you ....."
+  -
+    text: "..."
+    duration: 2
+  -
+    text: "..."
+    duration: 2
+  -
+    duration: 2
+    text: "CAN NOT STOP ME!"
+  -
+    text: "..."
+    duration: 3
+
+decision:
+  -
+    scene: "3b1"
+    label: "Stop you from what?"
+  -
+    scene: "4"
+    label: "Run away"

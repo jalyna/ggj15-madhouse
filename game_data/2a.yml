@@ -1,0 +1,51 @@
+steps:
+  -
+   background: "flur.jpg"
+   character: ""
+   duration: 4
+   text: "You walk through the hallway and suddenly you see a very famos person."
+   character_name: ""
+   text_effect:
+      effect: "rollIn"
+  -
+   background: "flur.jpg"
+   character: ""
+   duration: 4
+   text: "Is that? It can't! That's Nicolas Cage!"
+   character_name: ""
+   text_effect:
+      effect: "rollIn"
+  -
+    character: "schmicolas.png"
+    character_effect: "fadeIn"
+    text: "Hello. I'm Nicolas Cage!"
+    character_name: "Nicolas Cage"
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+  -
+   background: "flur.jpg"
+   character: "schmicolas.png"
+   duration: 4
+   text: "You might know me from Movies like Kick-Ass,Next, Sonny"
+   character_name: ""
+   text_effect:
+      effect: "rollIn"
+  -
+   background: "flur.jpg"
+   character: "schmicolas.png"
+   duration: 4
+   text: "Ghost Rider, Grindhouse, National Treasure: Book of Secrets, The Weather Man..."
+   character_name: ""
+   text_effect:
+      effect: "rollIn"
+decision:
+  -
+    scene: "2a1"
+    label: "You're not really Nicolas Cage aren't you?"
+  -
+    scene: "2a2"
+    label: "I love you, can i get an autograph?"
+  -
+    scene: "2a3"
+    label: "I get it, you played in a lot of movies."

@@ -1,0 +1,15 @@
+steps:
+  -
+    background: "cafeteria.jpg"
+    character: "stephanie.png"
+    duration: 3
+    text: "I found a knife in the trash"
+    sound: "doomed.ogg"
+    character_name: "Stephanie"
+  -
+    text: "......"
+    duration: 2
+decision:
+  -
+    scene: "4"
+    label: "Run away!"

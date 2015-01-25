@@ -1,11 +1,11 @@
 steps:
   -
-   background: "flur.jpg"
-   character: ""
-   duration: 4
-   text: "You try to find another person."
-   character_name: ""
-   text_effect:
+    background: "flur.jpg"
+    character: ""
+    duration: 4
+    text: "You try to find another person."
+    character_name: ""
+    text_effect:
       effect: "rollIn"
   -
     character: ""
