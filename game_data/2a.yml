@@ -16,7 +16,7 @@ steps:
    text_effect:
       effect: "rollIn"
   -
-    character: ""
+    character: "schmicolas.png"
     character_effect: "fadeIn"
     text: "Hello. I'm Nicolas Cage!"
     character_name: "Nicolas Cage"
@@ -25,7 +25,7 @@ steps:
       effect: "flipInY"
   -
    background: "flur.jpg"
-   character: ""
+   character: "schmicolas.png"
    duration: 4
    text: "You might know me from Movies like Kick-Ass,Next, Sonny"
    character_name: ""
@@ -33,7 +33,7 @@ steps:
       effect: "rollIn"
   -
    background: "flur.jpg"
-   character: ""
+   character: "schmicolas.png"
    duration: 4
    text: "Ghost Rider, Grindhouse, National Treasure: Book of Secrets, The Weather Man..."
    character_name: ""
