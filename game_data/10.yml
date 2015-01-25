@@ -5,10 +5,11 @@ steps:
     duration: 2
     text: " "
     character_name: ""
-    sound: "birds.ogg"
+    sound: "bird1.ogg"
   -
     text: "You finally escaped."
     duration: 20
+    sound: "bird2.ogg"
 decision:
   -
     scene: "start"

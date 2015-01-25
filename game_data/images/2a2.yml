@@ -1,0 +1,21 @@
+steps:
+  -
+    character: "schmicolas.png"
+    character_effect: "fadeIn"
+    text: "Of course!"
+    character_name: "Nicolas Cage"
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+  -
+   background: "flur.jpg"
+   character: "schmicolas.png"
+   duration: 4
+   text: "He gives you an autograph, you are very happy."
+   character_name: ""
+   text_effect:
+      effect: "rollIn"
+decision:
+  -
+    scene: "3"
+    label: "(leave)"
