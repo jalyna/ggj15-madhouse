@@ -3,7 +3,8 @@ steps:
     background: "flur.jpg"
     character: ""
     duration: 3
-    text: 'You ask: "Do you know how to escape?"'
+    character_name: "You"
+    text: "Do you know how to escape?"
   -
     character: "max.png"
     character_name: "Max"
