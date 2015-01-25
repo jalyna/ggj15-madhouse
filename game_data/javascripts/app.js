@@ -112,8 +112,11 @@ socket.on('render_step', function(data) {
     console.log(data);
     if(data.text !== undefined) {
       $("#text").html("<span>" + data.text + "</span>");
-      if(data.text_effect) {
-        $("#text > span").textillate({ in: data.text_effect });
+      if(data.text_effect || data.text_effect_out || data.text_type) {
+        if(!data.text_type) {
+          data.text_type = 'char';
+        }
+        $("#text > span").textillate({ in: data.text_effect, minDisplayTime: data.text_time, out: data.text_effect_out, type: data.text_type });
       }
     }
     if(data.background !== undefined) {
