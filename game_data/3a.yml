@@ -1,0 +1,14 @@
+steps:
+  -
+    background: "flur.jpg"
+    character: "bert.png"
+    character_effect: "fadeIn"
+    text: "Patient! Go back to your room!"
+    character_name: "Bert"
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "4"
+    label: "(leave)"

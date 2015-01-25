@@ -1,13 +1,13 @@
 steps:
   -
-    background: "flur.jpg"
-    character: ""
-    duration: 4
-    text: "Just a normal day in a psychiatry and you decided to break out, you now that you'll need the help of the other patients."
-    character_name: ""
-    text_effect:
-      effect: "flipInY"
-      delayScale: 0.5
+   background: "flur.jpg"
+   character: ""
+   duration: 4
+   text: "You try to find another person."
+   character_name: ""
+   sound: "chosen.ogg"
+   text_effect:
+      effect: "rollIn"
   -
     character: ""
     character_effect: "fadeIn"
@@ -15,7 +15,6 @@ steps:
     duration: 4
     text_effect:
       effect: "flipInY"
-    character_name: ""
 decision:
   -
     scene: "1a"
@@ -26,4 +25,3 @@ decision:
   -
     scene: "1c"
     label: "Go to the cafeteria"
-
