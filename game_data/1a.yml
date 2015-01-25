@@ -8,6 +8,7 @@ steps:
       effect: "rollIn"
     delayScale: 0.5
   -
+    sound: "max.mp3"
     character: "max.png"
     character_effect: "fadeIn"
     text: "You turn around and see a very nervous looking man"

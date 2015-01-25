@@ -2,6 +2,7 @@ steps:
   -
     background: "flur.jpg"
     character: "max.png"
+    sound: "max.mp3"
     duration: 3
     text: "The Moles are not sniches, but the raccoons are!"
     character_name: "Max"

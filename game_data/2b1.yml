@@ -1,5 +1,6 @@
 steps:
   -
+    sound: "dave.mp3"
     background: "cafeteria.jpg"
     character: "dave.png"
     character_effect: "fadeIn"

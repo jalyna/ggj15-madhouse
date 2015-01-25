@@ -23,6 +23,7 @@ steps:
     background: "cafeteria.jpg"
     character: "dave.png"
     character_effect: "fadeIn"
+    sound: "dave.mp3"
     text: "What are you looking at?"
     character_name: "Dave"
     duration: 4

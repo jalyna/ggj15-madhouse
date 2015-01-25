@@ -2,6 +2,7 @@ steps:
   -
     background: "flur.jpg"
     character: "max.png"
+    sound: "max.mp3"
     duration: 3
     text: "You don't know if you're a lizard human?"
     character_name: "Max"
