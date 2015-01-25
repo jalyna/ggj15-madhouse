@@ -1,20 +1,14 @@
 steps:
   -
     background: "bathroom.jpg"
-    character: ""
+    character: "tabea.png"
     duration: 4
     text: "Cooorect! Congratulations!Here is your price."
     character_name: "Tabea"
-    text_effect:
-      effect: "rollIn"
   -
-    character: ""
     character_effect: "fadeIn"
     text: "She gives you a toliet paper roll and leaves."
     duration: 4
-    text_effect:
-      effect: "flipInY"
-    character_name: ""
 decision:
   -
     scene: "1"

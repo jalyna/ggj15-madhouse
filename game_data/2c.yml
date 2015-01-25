@@ -15,6 +15,7 @@ steps:
     duration: 4
     text_effect:
       effect: "flipInY"
+      delayScale: 0.7
 decision:
   -
     scene: "2c1"

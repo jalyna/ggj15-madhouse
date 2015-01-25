@@ -1,20 +1,19 @@
 steps:
   -
     background: "bathroom.jpg"
-    character: ""
-    duration: 4
-    text: "Weren't you listen? Gosh, well know I have to find a candidate who were actually listen!"
+    character: "tabea.png"
+    character_effect: "fadeIn"
+    duration: 2
+    text: "Weren't you listen?"
     character_name: "Tabea"
-    text_effect:
-      effect: "rollIn"
+  -
+    text: "Gosh, well know I have to find a candidate who were actually listen!"
+    duration: 3
   -
     character: ""
-    character_effect: "fadeIn"
+    character_name: ""
     text: "She turns around and leaves."
     duration: 4
-    text_effect:
-      effect: "flipInY"
-    character_name: ""
 decision:
   -
     scene: "2c1"
