@@ -1,7 +1,7 @@
 steps:
   -
     background: "cafeteria.jpg"
-    character: ""
+    character: "dave.png"
     character_effect: "fadeIn"
     text: "You are going to the cafeteria to eat, but you can't find any cutlery."
     character_name: ""
@@ -10,7 +10,7 @@ steps:
       effect: "flipInY"
   -
     background: "cafeteria.jpg"
-    character: ""
+    character: "dave.png"
     character_effect: "fadeIn"
     text: "You look around and see a guy, a fork is sticking out of his pocket."
     character_name: ""
@@ -19,7 +19,7 @@ steps:
       effect: "flipInY"
   -
     background: "cafeteria.jpg"
-    character: ""
+    character: "dave.png"
     character_effect: "fadeIn"
     text: "What are you looking at?"
     character_name: "Dave"
@@ -29,10 +29,10 @@ steps:
 decision:
   -
     scene: "2b1"
-    label: "Your Face! It's ugly!"
+    label: "Where did you get all that stuff?"
   -
     scene: "2b2"
-    label: "I need that fork!
+    label: "I need that fork!"
   -
     scene: "3"
     label: "Nothing (Leave)"
