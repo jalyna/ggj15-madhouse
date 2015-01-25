@@ -10,8 +10,5 @@ steps:
       effect: "flipInY"
 decision:
   -
-    scene: "a"
-    label: "Ich nehme A"
-  -
-    scene: "b"
-    label: "Lieber B"
+    scene: "2"
+    label: "Leave"
