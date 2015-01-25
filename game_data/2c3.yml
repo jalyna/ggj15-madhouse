@@ -5,7 +5,6 @@ steps:
     duration: 4
     text: "Sadly, that's the wrong answer... Good luck next time!"
     character_name: "Tabea"
-    sound: "chosen.ogg"
     text_effect:
       effect: "rollIn"
   -
@@ -14,7 +13,6 @@ steps:
     text: "She turns around and leaves."
     character_name: ""
     duration: 4
-    sound: "chosen.ogg"
     text_effect:
       effect: "flipInY"
     character_name: ""

@@ -5,13 +5,12 @@ steps:
    duration: 4
    text: "You try to find another person."
    character_name: ""
-   sound: "chosen.ogg"
    text_effect:
       effect: "rollIn"
   -
     character: ""
     character_effect: "fadeIn"
-    text: "So, what do we do?"
+    text: "So, what do we do now?"
     duration: 4
     text_effect:
       effect: "flipInY"

@@ -1,13 +1,12 @@
 steps:
    -
-      background: "bathroom.jpg"
-      character: "bucketlady.png"
-      character_effect: "fadeIn"
-      text: "Do you want my Bucket?"
-      duration: 4
-      sound: "chosen.ogg"
-      text_effect:
-        effect: "flipInY"
+    background: "bathroom.jpg"
+    character: "bucketlady.png"
+    character_effect: "fadeIn"
+    text: "Do you want my Bucket?"
+    duration: 3
+    text_effect:
+      effect: "flipInY"
 decision:
   -
     scene: "1b1"
