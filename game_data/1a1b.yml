@@ -1,6 +1,6 @@
 steps:
   -
-    background: "flur.png"
+    background: "flur.jpg"
     character: "max.png"
     duration: 3
     text: "The Moles are not sniches, but the raccoons are!"
@@ -8,7 +8,7 @@ steps:
     text_effect:
       effect: "rollIn"
   -
-    background: "flur.png"
+    background: "flur.jpg"
     character:  "max.png"
     duration: 3
     text: "But it seems that you know nothing, that's good!"
@@ -28,7 +28,3 @@ decision:
   -
     scene: "2"
     label: "(leave)"
-  -
-    scene: "c"
-    label: "hidden"
-    hidden: true
