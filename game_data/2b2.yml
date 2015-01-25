@@ -16,5 +16,5 @@ decision:
     scene: "3"
     label: "I don't need a spoon! (leave)"
   -
-    scene: "2b2ba"
+    scene: "2b2a"
     label: "Ok, Can you give me a spoon?"
