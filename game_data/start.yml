@@ -12,7 +12,6 @@ steps:
     text_effect_out:
       effect: "wobble"
       delayScale: 0.5
-    text_type: "word"
   -
     character: ""
     character_effect: "fadeIn"
