@@ -129,11 +129,12 @@ socket.on('render_step', function(data) {
       } else {
         $("#character").addClass('is-hidden').css("background-image", "url(images/" + data.character + ")");
       }
-      if(data.character_effect) {
+      if(data.character_effect && data.character) {
         $("#character").removeClass('is-hidden');
         $('#character').addClass(data.character_effect);
         // $("#character")[data.character_effect]();
       } else {
+        $('#character').attr('class', 'character');
         $("#character").removeClass('is-hidden');
       }
     }
