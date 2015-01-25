@@ -1,6 +1,6 @@
 steps:
   -
-    background: "flur.png"
+    background: "flur.jpg"
     character: "max.png"
     duration: 10
     text: "Its not important what they are, it's important that they are after me!"
