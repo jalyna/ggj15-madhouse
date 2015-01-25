@@ -52,6 +52,7 @@ h1 {
   background-size: 100%;
   background-position: center;
   z-index: 0;
+  overflow: hidden;
 }
 
 .textarea {
@@ -241,6 +242,24 @@ h1 {
   background-repeat: no-repeat;
   background-size: contain; 
   z-index: 0;
+}
+
+.is-hidden {
+  transform: translateX(200%);
+}
+
+.fadeIn {
+  // display: block !important;
+  animation: fadein 1 5s;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 

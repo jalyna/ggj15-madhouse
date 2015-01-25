@@ -125,15 +125,16 @@ socket.on('render_step', function(data) {
     }
     if(data.character !== undefined) {
       if(data.character == "") {
-        $("#character").hide().css("background-image", "none");
+        $("#character").addClass('is-hidden').css("background-image", "none");
       } else {
-        $("#character").hide().css("background-image", "url(images/" + data.character + ")");
+        $("#character").addClass('is-hidden').css("background-image", "url(images/" + data.character + ")");
       }
       if(data.character_effect) {
+        $("#character").removeClass('is-hidden');
         $('#character').addClass(data.character_effect);
         // $("#character")[data.character_effect]();
       } else {
-        $("#character").show();
+        $("#character").removeClass('is-hidden');
       }
     }
     if(data.character_name !== undefined) {
