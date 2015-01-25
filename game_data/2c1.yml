@@ -11,6 +11,5 @@ steps:
     duration: 4
 decision:
   -
-    scene: "1"
+    scene: "3"
     label: "(Leave)"
-  

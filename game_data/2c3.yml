@@ -1,21 +1,19 @@
 steps:
   -
     background: "bathroom.jpg"
-    character: ""
+    character: "tabea.png"
     duration: 4
-    text: "Sadly, that's the wrong answer... Good luck next time!"
+    text: "Sadly, that's the wrong answer..."
     character_name: "Tabea"
-    text_effect:
-      effect: "rollIn"
+  -
+    text: "Good luck next time!"
+    duration: 2
   -
     character: ""
     character_effect: "fadeIn"
     text: "She turns around and leaves."
     character_name: ""
-    duration: 4
-    text_effect:
-      effect: "flipInY"
-    character_name: ""
+    duration: 3
 decision:
   -
     scene: "3"
