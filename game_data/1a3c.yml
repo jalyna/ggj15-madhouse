@@ -6,7 +6,6 @@ steps:
     text: "Because they are HERE!"
     character_name: "Max"
     duration: 4
-    sound: "chosen.ogg"
     text_effect:
       effect: "flipInY"
 decision:

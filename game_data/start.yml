@@ -5,7 +5,6 @@ steps:
     duration: 4
     text: "Just a normal day in a psychiatry and you decided to break out, you now that you'll need the help of the other patients."
     character_name: ""
-    sound: "chosen.ogg"
     text_effect:
       effect: "rollIn"
   -
@@ -13,7 +12,6 @@ steps:
     character_effect: "fadeIn"
     text: "So, what do we do?"
     duration: 4
-    sound: "chosen.ogg"
     text_effect:
       effect: "flipInY"
     character_name: ""

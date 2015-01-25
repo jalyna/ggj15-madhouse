@@ -13,7 +13,6 @@ steps:
     character_effect: "fadeIn"
     text: "So, what do we do?"
     duration: 4
-    sound: "chosen.ogg"
     text_effect:
       effect: "flipInY"
 decision:

@@ -5,7 +5,6 @@ steps:
     character_effect: "fadeIn"
     text: "I knew it! But you won't get it. It is my Bucket."
     duration: 4
-    sound: "chosen.ogg"
     text_effect:
       effect: "flipInY"
 decision:

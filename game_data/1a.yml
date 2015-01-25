@@ -12,7 +12,6 @@ steps:
     character_effect: "fadeIn"
     text: "You turn around and see a very nervous looking man"
     duration: 4
-    sound: "chosen.ogg"
     text_effect:
       effect: "flipInY"
 decision:

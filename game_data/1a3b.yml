@@ -6,7 +6,6 @@ steps:
     text: "No one can help me, no one is save, they will get you too!"
     character_name: "Max"
     duration: 4
-    sound: "chosen.ogg"
     text_effect:
       effect: "flipInY"
 decision:
