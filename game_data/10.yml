@@ -11,7 +11,7 @@ steps:
     duration: 3
     sound: "bird2.ogg"
   -
-    text: "What dou you do now?"
+    text: "What do we do now?"
     duration: 8
     sound: "title.ogg"
 decision:
