@@ -200,15 +200,15 @@ socket.on('set_name', function(name) {
 });
 
 socket.on('set_decision', function(decision, result) {
-  console.log("DESICION: " + decision);
+  console.log("DESICION: " + decision, result);
   $("#current_scene").html(decision);
   chosen.play();
   $('#text').empty();
   $("button[data-option="+decision+"]").addClass("chosen-decision");
   $("button[data-option]").each(function(index) {
     $el = $(this);
-    opt = $el.data('options');
-    number = 0;
+    opt = $el.data('option');
+    var number = 0;
     if(result[opt]) {
       number = result[opt];
     }
