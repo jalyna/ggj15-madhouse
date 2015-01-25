@@ -1,6 +1,6 @@
 steps:
   -
-    background: "flur.jpg"
+    background: "bathroom.jpg"
     character: ""
     duration: 4
     text: "We have a new candidate"
