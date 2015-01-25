@@ -11,7 +11,7 @@ steps:
   -
     text: "Get your own stuff!"
     character_name: "Dave"
-    duration: 4
+    duration: 2
     text_effect:
       effect: "flipInY"
 decision:
