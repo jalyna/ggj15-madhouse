@@ -1,28 +1,28 @@
 steps:
   -
-   background: "flur.jpg"
-   character: "schmicolas.png"
-   duration: 4
-   text: "Yes I played in a lot of movies."
-   character_name: "Nicolas Cage"
-   text_effect:
-      effect: "rollIn"
+    background: "flur.jpg"
+    character: "schmicolas.png"
+    duration: 3
+    text: "Yes I played in a lot of movies."
+    character_name: "Nicolas Cage"
   -
-   background: "flur.jpg"
-   character: "schmicolas.png"
-   duration: 4
-   text: "But it seems that you are not interested in talking to me."
-   character_name: "Nicolas Cage"
-   text_effect:
-      effect: "rollIn"
+    background: "flur.jpg"
+    character: "schmicolas.png"
+    duration: 3
+    text: "But it seems that you are not interested in talking to me."
+    character_name: "Nicolas Cage"
+    text_effect:
+      effect: "flipInY"
+      delayScale: 0.7
   -
     character: ""
     character_effect: "fadeIn"
     text: "He turns around ans leaves."
+    duration: 2
     character_name: ""
-    duration: 4
     text_effect:
       effect: "flipInY"
+      delayScale: 0.7
 decision:
   -
     scene: "3"
