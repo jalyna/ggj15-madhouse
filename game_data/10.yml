@@ -12,8 +12,7 @@ steps:
     sound: "bird2.ogg"
   -
     text: "What do we do now?"
-    duration: 8
-    sound: "title.ogg"
+    duration: 4
 decision:
   -
     scene: "start"
