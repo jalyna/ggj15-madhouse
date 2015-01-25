@@ -34,3 +34,4 @@ $ coffee server.coffee
 - [x] Forks
 - [x] Chat Window Scroll to Bottom
 - [x] Stop / Reload Button
+- [x] Show results

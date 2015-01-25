@@ -92,7 +92,7 @@ countDown = (io) ->
       in_decision = false
       scene = getDecision()
       step = -1
-      io.emit 'set_decision', scene
+      io.emit 'set_decision', scene, decision_result
       setTimeout (->
         loadScene io, scene, ->
           nextStep(io)

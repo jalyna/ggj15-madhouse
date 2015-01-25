@@ -181,6 +181,7 @@ h1 {
     display: block;
   }
   .button {
+    position: relative;
     color: #fff;
     background-color: rgba(160,160,160, 0.5);
     margin-bottom: 1em;
@@ -189,6 +190,21 @@ h1 {
       background-color: rgba(160,160,160, 1);
     }
     transition: ease 200ms transform;
+  }
+  .result {
+    right: -5px;
+    top: -5px;
+    position: absolute;
+    padding-top: 5px;
+    border-radius: 100%;
+    background-color: #fff;
+    color: #c064a8;
+    font-weight: bold;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    font-size: 0.7em;
+    display: block;
   }
   .chosen-decision {
     background: #c064a8 !important;
