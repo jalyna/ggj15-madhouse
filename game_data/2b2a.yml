@@ -1,0 +1,23 @@
+steps:
+  -
+    background: "cafeteria.jpg"
+    character: "dave.png"
+    character_effect: "fadeIn"
+    text: "I dont have a spoon."
+    character_name: "Dave"
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+  -
+    background: "cafeteria.jpg"
+    character: "dave.png"
+    character_effect: "fadeIn"
+    text: "Yet"
+    character_name: "Dave"
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "3"
+    label: "(leave)"

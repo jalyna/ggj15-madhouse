@@ -22,5 +22,5 @@ decision:
     scene: "1c"
     label: "Go to the bathroom"
   -
-    scene: "2b"
+    scene: "3b"
     label: "Go to the cafeteria"
