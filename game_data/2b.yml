@@ -8,6 +8,7 @@ steps:
     duration: 4
     text_effect:
       effect: "flipInY"
+      delayScale: 0.7
   -
     background: "cafeteria.jpg"
     character: ""
@@ -17,6 +18,7 @@ steps:
     duration: 4
     text_effect:
       effect: "flipInY"
+      delayScale: 0.7
   -
     background: "cafeteria.jpg"
     character: "dave.png"
