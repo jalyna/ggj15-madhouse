@@ -25,7 +25,3 @@ decision:
   -
     scene: "1a3b"
     label: "Can I help you?"
-  -
-    scene: "c"
-    label: "hidden"
-    hidden: true
