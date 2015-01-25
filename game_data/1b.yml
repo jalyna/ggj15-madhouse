@@ -14,7 +14,3 @@ decision:
   -
     scene: "1b2"
     label: "Yes"
-  -
-    scene: "c"
-    label: "hidden"
-    hidden: true

@@ -12,8 +12,3 @@ decision:
   -
     scene: "2"
     label: "(Leave)"
-
-  -
-    scene: "c"
-    label: "hidden"
-    hidden: true

@@ -15,7 +15,3 @@ decision:
   -
     scene: "1b2a"
     label: "But I need the bucket!"
-  -
-    scene: "c"
-    label: "hidden"
-    hidden: true
