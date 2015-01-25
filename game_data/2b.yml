@@ -1,7 +1,7 @@
 steps:
   -
     background: "cafeteria.jpg"
-    character: "dave.png"
+    character: ""
     character_effect: "fadeIn"
     text: "You are going to the cafeteria to eat, but you can't find any cutlery."
     character_name: ""
@@ -10,7 +10,7 @@ steps:
       effect: "flipInY"
   -
     background: "cafeteria.jpg"
-    character: "dave.png"
+    character: ""
     character_effect: "fadeIn"
     text: "You look around and see a guy, a fork is sticking out of his pocket."
     character_name: ""
