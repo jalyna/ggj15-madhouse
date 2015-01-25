@@ -1,0 +1,38 @@
+steps:
+  -
+    background: "cafeteria.jpg"
+    character: ""
+    character_effect: "fadeIn"
+    text: "You are going to the cafeteria to eat, but you can't find any cutlery."
+    character_name: ""
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+  -
+    background: "cafeteria.jpg"
+    character: ""
+    character_effect: "fadeIn"
+    text: "You look around and see a guy, a fork is sticking out of his pocket."
+    character_name: ""
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+  -
+    background: "cafeteria.jpg"
+    character: ""
+    character_effect: "fadeIn"
+    text: "What are you looking at?"
+    character_name: "Dave"
+    duration: 4
+    text_effect:
+      effect: "flipInY"
+decision:
+  -
+    scene: "2b1"
+    label: "Your Face! It's ugly!"
+  -
+    scene: "2b2"
+    label: "I need that fork!
+  -
+    scene: "3"
+    label: "Nothing (Leave)"
